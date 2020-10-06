@@ -5,10 +5,9 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 
 public class JDABot {
-    public  static void main(String[] args) throws Exception{
-        var token = "NzYzMDUxOTYxNTAyMTM4NDEw.X3yFhA.p-NCvNHK3ug_4qhvBLQjlmZv-Qk";
+    public static void main(String[] args) throws Exception {
         new JDABuilder()
-                .setToken(token)
+                .setToken(Config.GetToken("TOKEN"))
                 .addEventListeners(new JokeEvent())
                 .setActivity(Activity.watching("Работает"))
                 .build();

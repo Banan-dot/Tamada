@@ -9,15 +9,14 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 
 
-
-public class JokeEvent extends ListenerAdapter{
+public class JokeEvent extends ListenerAdapter {
     @Override
-    public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event){
+    public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
         var message = event.getMessage().getContentRaw();
         System.out.println(message);
         var joke = new JokeCommand();
         if (message.equalsIgnoreCase("анек"))
-            if(!Objects.requireNonNull(event.getMember()).getUser().isBot()){
+            if (!Objects.requireNonNull(event.getMember()).getUser().isBot()) {
                 event.getChannel().sendMessage(joke.execute()).queue();
             }
     }
