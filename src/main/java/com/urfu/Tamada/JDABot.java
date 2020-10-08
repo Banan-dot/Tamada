@@ -9,7 +9,7 @@ public class JDABot {
         new JDABuilder()
                 .setToken(Config.GetToken("TOKEN"))
                 .addEventListeners(new JokeEvent())
-                .setActivity(Activity.watching("Работает"))
+                .setActivity(Activity.watching("говнокод Данила"))
                 .build();
     }
 }
