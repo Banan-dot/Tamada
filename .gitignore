@@ -1,11 +1,13 @@
 # IntelliJ IDEA
 .idea/
 
+# bytesode
+.target/
+
+SimpleJokesLogger.txt
+
 # Compiled class file
 *.class
-
-# DB files
-*.db
 
 # Log file
 *.log
