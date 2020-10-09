@@ -18,7 +18,7 @@ public class JokeCommand extends Command {
                 var sql = String.format("SELECT * FROM anek WHERE id = %d", rnd_at);
                 var stmt  = connection.createStatement();
                 var rs    = stmt.executeQuery(sql);
-
+                
                 while (rs.next()) {
                     System.out.println(rs.getString("text"));
                     result = rs.getString("text");
