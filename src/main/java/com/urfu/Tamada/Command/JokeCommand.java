@@ -42,7 +42,8 @@ public class JokeCommand extends Command {
         rawJoke = rawJoke.replace("&quot;", "\"");
         rawJoke = rawJoke.replace("\"\"", "\"");
         rawJoke = rawJoke.replace("\\n\\n", "\n");
-        return rawJoke.replace("\\n", "\n");
+        rawJoke = rawJoke.replace("\\n", "\n");
+        return rawJoke.replaceAll("\n$", "");
     }
 
     public String execute() {

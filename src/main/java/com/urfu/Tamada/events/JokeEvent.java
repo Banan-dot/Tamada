@@ -22,13 +22,8 @@ public class JokeEvent extends ListenerAdapter {
                 count = part[1].replaceAll("\\s+", "");
                 if (!check(part))
                     event.getChannel().sendMessage("some problems.").queue();
-                else {
-                    System.out.println(message);
-                    sendJokes(Integer.parseInt(count), event);
-                }
             }
-            else
-                sendJokes(Integer.parseInt(count), event);
+            sendJokes(Integer.parseInt(count), event);
         }
     }
 
