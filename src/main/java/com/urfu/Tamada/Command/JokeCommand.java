@@ -5,8 +5,6 @@ import java.util.*;
 import com.urfu.Tamada.DebugUtil;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-import javax.annotation.Nonnull;
-
 @CommandName(name = "Anek")
 public class JokeCommand extends Command {
     private static final String url = "jdbc:sqlite:.\\Aneks0.db";
@@ -38,7 +36,37 @@ public class JokeCommand extends Command {
                 .replaceAll("\n$", "");
     }
 
-    public String execute(CommandData commandData) {
-        return getRandomAnecdote();
+    boolean tryParseInt(String value) {
+        try {
+            Integer.parseInt(value);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public void execute(CommandData commandData, GuildMessageReceivedEvent event) {
+        var messArr = event.getMessage().getContentRaw().split(" ");
+        var anecdoteCount = getAnecdoteCount(messArr, event);
+        var margin = "\n-------------------";
+        for (var i = 0; i < anecdoteCount; i++)
+            if (!Objects.requireNonNull(event.getMember()).getUser().isBot())
+                event.getChannel().sendMessage(getRandomAnecdote() + margin).queue();
+    }
+
+    private int getAnecdoteCount(String[] arr, GuildMessageReceivedEvent event){
+        var count = 1;
+        var integer= arr.length == 1 ? "1" : arr[1];
+        if (tryParseInt(integer))
+            count = Integer.parseInt(integer);
+        else {
+            event.getChannel().sendMessage("Write number ∈[1; 10]").queue();
+            return 0;
+        }
+        if (count <= 0 || count > 10) {
+            event.getChannel().sendMessage("Write correct number ∈[1; 10]").queue();
+            return 0;
+        }
+       return count;
     }
 }

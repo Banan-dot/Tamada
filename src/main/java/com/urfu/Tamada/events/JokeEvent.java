@@ -1,9 +1,10 @@
 package com.urfu.Tamada.events;
 
 import com.urfu.Tamada.Command.CommandData;
+import com.urfu.Tamada.Command.VoiceMute;
+import com.urfu.Tamada.Command.VoiceUnmute;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-
 import com.urfu.Tamada.Command.JokeCommand;
 
 import javax.annotation.Nonnull;
@@ -13,49 +14,18 @@ import java.util.Objects;
 public class JokeEvent extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
+        System.out.println(event.getMessage().getContentRaw());
         var message = event.getMessage().getContentRaw();
-        var count = 1;
         var command = message.split(" ")[0];
-        var integer = message.split(" ")[1];
-        var commandData = new CommandData(command, new String[]{integer});
         if (command.equalsIgnoreCase("анек")) {
-            if (tryParseInt(integer))
-                count = Integer.parseInt(integer);
-            else {
-                event.getChannel().sendMessage("Write number ∈[1; 10]").queue();
-                return;
-            }
-            if (count <= 0 || count > 10) {
-                event.getChannel().sendMessage("Write correct number ∈[1; 10]").queue();
-                return;
-            }
-            sendJokes(count, event, commandData);
+            new JokeCommand().execute(new CommandData("Anek", new String[]{"2"}), event);
         }
-        else if (command.equalsIgnoreCase("Заставить молчать Данила"))
-            muteUser(event.getAuthor().getId());
-
-    }
-
-    private void muteUser(String userId)
-    {
-
-    }
-
-    boolean tryParseInt(String value) {
-        try {
-            Integer.parseInt(value);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
+        else if (command.equalsIgnoreCase("mute")){
+            new VoiceMute().execute(new CommandData("Mute", new String[]{"Людского во мне дохуя"}), event);
         }
-    }
-
-    private void sendJokes(Integer count, @Nonnull GuildMessageReceivedEvent event, CommandData commandData){
-        var joke = new JokeCommand();
-        var margin = "\n-------------------";
-        for (var i = 0; i < count; i++)
-            if (!Objects.requireNonNull(event.getMember()).getUser().isBot())
-                event.getChannel().sendMessage(joke.execute(commandData) + margin).queue();
+        else if (command.equalsIgnoreCase("unmute")){
+            new VoiceUnmute().execute(new CommandData("unmute", new String[]{"Людского во мне дохуя"}), event);
+        }
     }
 }
 
