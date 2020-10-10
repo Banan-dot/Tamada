@@ -3,8 +3,11 @@ package com.urfu.Tamada.Command;
 import java.sql.*;
 import java.util.*;
 import com.urfu.Tamada.DebugUtil;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
+import javax.annotation.Nonnull;
 
+@CommandName(name = "Anek")
 public class JokeCommand extends Command {
     private static final String url = "jdbc:sqlite:.\\Aneks0.db";
 
@@ -35,5 +38,7 @@ public class JokeCommand extends Command {
                 .replaceAll("\n$", "");
     }
 
-    public String execute() { return getRandomAnecdote(); }
+    public String execute(CommandData commandData) {
+        return getRandomAnecdote();
+    }
 }
