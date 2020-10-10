@@ -16,21 +16,29 @@ public class JokeEvent extends ListenerAdapter {
         var part = message.split("(?<=\\D)(?=\\d)");
         message = part[0].replaceAll("\\s+", "");
         var count = "1";
+        var maksimReg = "\"\"[^\"]*\"|\\S+\""; // для чего она нужна?
         if (message.equalsIgnoreCase("анек") ||
                 message.equalsIgnoreCase("анек-")){
-            if (part.length == 2) {
+            if (part.length >= 2) {
                 count = part[1].replaceAll("\\s+", "");
-                if (!check(part))
-                    event.getChannel().sendMessage("some problems.").queue();
+                if (!check(part)){
+                    event.getChannel().sendMessage("Something wrong.").queue();
+                    return;
+                }
             }
             sendJokes(Integer.parseInt(count), event);
         }
     }
 
     private boolean check(String[] part){
-        var number = part[1];
-        var message = part[0];
-        return !message.contains("-") && Integer.parseInt(number) <= 26;
+        try {
+            var number = part[1];
+            var message = part[0];
+            return !message.contains("-") && Integer.parseInt(number) <= 26;
+        }
+        catch (Exception exception){
+            return false;
+        }
     }
 
     private void sendJokes(Integer count, @Nonnull GuildMessageReceivedEvent event){
