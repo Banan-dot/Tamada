@@ -13,20 +13,31 @@ public class JokeEvent extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
         var message = event.getMessage().getContentRaw();
-        var part = message.split("(?<=\\D)(?=\\d)");
-        message = part[0].replaceAll("\\s+", "");
-        var count = "1";
-        var maksimReg = "\"\"[^\"]*\"|\\S+\""; // для чего она нужна?
-        if (message.equalsIgnoreCase("анек") ||
-                message.equalsIgnoreCase("анек-")){
-            if (part.length >= 2) {
-                count = part[1].replaceAll("\\s+", "");
-                if (!check(part)){
-                    event.getChannel().sendMessage("Something wrong.").queue();
-                    return;
-                }
-            }
-            sendJokes(Integer.parseInt(count), event);
+        var count = 0;
+        var command = message.split(" ")[0];
+        var integer = message.split(" ")[1];
+        if (!command.equalsIgnoreCase("анек"))
+            return;
+        if (tryParseInt(integer))
+            count = Integer.parseInt(integer);
+        else {
+            event.getChannel().sendMessage("Write number ∈[1; 10]").queue();
+            return;
+        }
+        if (count <= 0 || count > 10) {
+            System.out.println(count);
+            event.getChannel().sendMessage("Write correct number ∈[1; 10]").queue();
+            return;
+        }
+        sendJokes(count, event);
+    }
+
+    boolean tryParseInt(String value) {
+        try {
+            Integer.parseInt(value);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 
@@ -34,7 +45,7 @@ public class JokeEvent extends ListenerAdapter {
         try {
             var number = part[1];
             var message = part[0];
-            return !message.contains("-") && Integer.parseInt(number) <= 26;
+            return !message.contains("-") && Integer.parseInt(number) <= 10;
         }
         catch (Exception exception){
             return false;

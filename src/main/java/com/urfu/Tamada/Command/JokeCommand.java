@@ -11,42 +11,29 @@ public class JokeCommand extends Command {
     private String getRandomAnecdote()
     {
         var rnd_at = new Random().nextInt(130256);
-        var result = "";
-        //System.out.println(JDBC.PREFIX);
-        //Class.forName("org.sqlite.JDBC");
+        var anecdote = "";
         try (var connection = DriverManager.getConnection(url)){
                 var sql = String.format("SELECT * FROM anek WHERE id = %d", rnd_at);
                 var stmt  = connection.createStatement();
                 var rs    = stmt.executeQuery(sql);
-                
-                while (rs.next()) {
-                    System.out.println(rs.getString("text"));
-                    result = rs.getString("text");
-                }
+                anecdote = rs.getString("text");
             }
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        //var rnd = new Random().nextInt(jokes_db.size());
-        //var result = jokes_db.get(rnd);
-        result = parseRawString(result);
+        anecdote = parseRawString(anecdote);
         new DebugUtil()
-                .simpleLogger(result, rnd_at);
-        return result;
+                .simpleLogger(anecdote, rnd_at);
+        return anecdote;
     }
 
     private String parseRawString(String rawJoke){
-        // &quote 74244
-        // "Sparta4|PS-3"  90154
-        // 103270 1258-
-        rawJoke = rawJoke.replace("&quot;", "\"");
-        rawJoke = rawJoke.replace("\"\"", "\"");
-        rawJoke = rawJoke.replace("\\n\\n", "\n");
-        rawJoke = rawJoke.replace("\\n", "\n");
-        return rawJoke.replaceAll("\n$", "");
+        return rawJoke
+                .replace("&quot;", "\"")
+                .replace("\"\"", "\"")
+                .replace("\\n", "\n")
+                .replaceAll("\n$", "");
     }
 
-    public String execute() {
-        return getRandomAnecdote();
-    }
+    public String execute() { return getRandomAnecdote(); }
 }

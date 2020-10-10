@@ -7,7 +7,7 @@ public class DebugUtil {
     public void simpleLogger(String joke, Integer id){
         try(FileWriter writer = new FileWriter("SimpleJokesLogger.txt", true))
         {
-            var loggString = id + " " + joke;
+            var loggString = id + " " + joke + "\n";
             writer.write(loggString);
         }
         catch(IOException ex){
