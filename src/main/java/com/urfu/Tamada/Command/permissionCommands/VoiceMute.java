@@ -9,6 +9,6 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 public class VoiceMute extends Command {
     @Override
     public void execute(CommandData commandData, GuildMessageReceivedEvent event) {
-        new VoiceCommand().voiceCommand(event, true, 8);
+        new VoiceCommand().voiceCommand(event, true);
     }
 }

@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.entities.Activity;
 public class JDABot {
     public static void main(String[] args) throws Exception {
         new JDABuilder()
-                .setToken(Config.GetToken("TOKEN"))
+                .setToken(Config.getToken("TOKEN"))
                 .addEventListeners(new JokeEvent())
                 .setActivity(Activity.watching("говнокод Данила"))
                 .build();
