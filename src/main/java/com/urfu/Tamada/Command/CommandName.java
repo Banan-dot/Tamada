@@ -1,4 +1,5 @@
 package com.urfu.Tamada.Command;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -8,5 +9,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface CommandName {
     String name();
+
     String info() default "";
 }
