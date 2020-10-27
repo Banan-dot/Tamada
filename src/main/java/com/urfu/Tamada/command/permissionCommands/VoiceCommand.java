@@ -1,7 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.events.CommandController;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
@@ -14,8 +13,7 @@ public class VoiceCommand {
         var guild = pair.getGuild();
         System.out.println(member.getNickname());
         var mess = event.getMessage();
-        if (member.getId().equals(Objects.requireNonNull(mess.getMember()).getId())
-            || member.hasPermission(Permission.ADMINISTRATOR)){
+        if (member.getId().equals(Objects.requireNonNull(mess.getMember()).getId())){
             event.getChannel().sendMessage("Дурак что-ли?").queue();
         }
         else

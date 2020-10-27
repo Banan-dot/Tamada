@@ -5,6 +5,7 @@
 .target/
 
 SimpleJokesLogger.txt
+id.txt
 
 # Compiled class file
 *.class
