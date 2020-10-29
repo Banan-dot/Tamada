@@ -4,29 +4,31 @@ import com.urfu.Tamada.command.ascii.Ascii;
 import com.urfu.Tamada.command.ascii.AsciiLines;
 import com.urfu.Tamada.command.permissionCommands.*;
 
+import java.util.HashMap;
+
 public class CommandFactory {
     public Command getCommand(String commandName)
     {
         switch (commandName.toLowerCase())
         {
-            case "анек":
+            case "anek":
                 return new JokeCommand();
             case "mute":
                 return new VoiceMute();
             case "unmute":
-                new VoiceUnmute();
+                return new VoiceUnmute();
             case "rename":
-                new Rename();
+                return new Rename();
             case "kick":
-                new KickMember();
+                return new KickMember();
             case "mute_t":
-                new ChatMute();
+                return new ChatMute();
             case "ascii":
-                new Ascii();
+                return new Ascii();
             case "hd":
-                new AsciiLines();
+                return new AsciiLines();
             default:
-                return null;
+                return new NoCommand();
         }
     }
 }

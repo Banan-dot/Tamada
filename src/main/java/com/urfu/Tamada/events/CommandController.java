@@ -1,5 +1,6 @@
 package com.urfu.Tamada.events;
 
+import com.urfu.Tamada.Config;
 import com.urfu.Tamada.command.CommandFactory;
 import com.urfu.Tamada.command.Pair;
 import com.urfu.Tamada.command.permissionCommands.*;
@@ -12,12 +13,10 @@ import java.util.Objects;
 public class CommandController extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
-        String prefix = "!";
-        System.out.println(prefix);
-        System.out.println(event.getMessage().getContentRaw());
+        
         var message = event.getMessage().getContentRaw();
         var commandName = message.split(" ")[0];
-        if (commandName.startsWith(prefix))
+        if (commandName.startsWith(Config.getPrefix()))
         {
             var command = new CommandFactory().getCommand(commandName.substring(1));
             command.execute(event);
