@@ -1,12 +1,22 @@
 package com.urfu.Tamada;
 
+import com.urfu.Tamada.command.ascii.alias.Alias;
 import com.urfu.Tamada.events.CommandController;
+import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
 public class JDABot {
     public static void main(String[] args) throws Exception {
-        JDABuilder.createLight(Config.getToken("TOKEN"))
+        //var alias = new Alias();
+        //alias.execute();
+        JDABuilder.createDefault(Config.getToken("TOKEN"))
+                .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
+                .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
+                .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new CommandController())
                 .setActivity(Activity.watching("в будущее России"))
                 .build();

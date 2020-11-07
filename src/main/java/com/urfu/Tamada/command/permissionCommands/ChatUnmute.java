@@ -3,13 +3,11 @@ package com.urfu.Tamada.command.permissionCommands;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.IPermissionHolder;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
 
-public class ChatMute extends Command {
+public class ChatUnmute extends Command {
     @Override
     public void execute(GuildMessageReceivedEvent event) {
         var pair = CommandController.getMemberFromEvent(event);
@@ -22,9 +20,12 @@ public class ChatMute extends Command {
                 .forEach(i -> i.getManager()
                         .getChannel()
                         .putPermissionOverride(member)
-                        .deny(Permission.MESSAGE_WRITE)
+                        .setAllow(Permission.MESSAGE_WRITE)
                         .queue());
-            event.getChannel().sendMessage(String.format("Пользователь %s замьючен", member.getNickname())).queue();
+            event
+                .getChannel()
+                .sendMessage(String.format("Пользователь %s размьючен", member.getNickname()))
+                .queue();
         }
     }
 }

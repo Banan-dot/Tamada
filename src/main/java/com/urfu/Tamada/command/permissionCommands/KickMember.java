@@ -14,7 +14,16 @@ public class KickMember extends Command {
         if (mess.equals("@everyone") && Objects.requireNonNull(event.getMember()).hasPermission(Permission.ADMINISTRATOR)) {
             event.getChannel().getMembers().forEach(x ->
             {
-                try { x.kick().queue();}
+                try {
+                    if (!x.hasPermission(Permission.ADMINISTRATOR))
+                        x.kick().queue();
+                    else{
+                        event
+                            .getChannel()
+                            .sendMessage("Такого человечка (" + x.getNickname()+") нельзя кикнуть, так как он является администратором.")
+                            .queue();
+                    }
+                }
                 catch (net.dv8tion.jda.api.exceptions.HierarchyException e) {
                     event.getChannel().sendMessage(e.getMessage()).queue();
                 }

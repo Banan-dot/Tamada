@@ -6,6 +6,6 @@ public class NoCommand extends Command{
 
     @Override
     public void execute(GuildMessageReceivedEvent event) {
-        event.getChannel().sendMessage("Такой команды нет").queue();
+        event.getChannel().sendMessage("Такой команды нет.").queue();
     }
 }

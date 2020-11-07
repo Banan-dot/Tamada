@@ -8,14 +8,15 @@ public class AsciiExecutor {
     private final String savePathOriginal;
     private final String pathAscii;
     private final String pathToPython;
-    private final String answerIfNoImage = "Отправьте изображение, пожалуйста.";
 
     public AsciiExecutor(String savePathOriginal, String pathAscii, String pathToPython){
         this.savePathOriginal = savePathOriginal;
         this.pathAscii = pathAscii;
         this.pathToPython = pathToPython;
     }
+
     public void saveOriginalPhoto(GuildMessageReceivedEvent event){
+        String answerIfNoImage = "Отправьте изображение, пожалуйста.";
         try {
             var photo = event
                     .getMessage()
