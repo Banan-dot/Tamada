@@ -12,22 +12,22 @@ public class CommandFactory {
         System.out.println(commandName);
         switch (commandName.toLowerCase())
         {
-            case "anek":
+            case "анек":
                 return new JokeCommand();
             case "mute":
                 return new VoiceMute();
             case "unmute":
-                return new VoiceUnmute();
+                new VoiceUnmute();
             case "rename":
-                return new Rename();
+                new Rename();
             case "kick":
-                return new KickMember();
+                new KickMember();
             case "mute_t":
-                return new ChatMute();
+                new ChatMute();
             case "ascii":
-                return new Ascii();
+                new Ascii();
             case "hd":
-                return new AsciiLines();
+                new AsciiLines();
             case "mm":
                 return new WriteMembers();
             case "unmute_t":
@@ -43,8 +43,12 @@ public class CommandFactory {
                 return new Crocodile();
             case "alias":
                 return new Alias();
+            case "ban":
+                return new BanMember();
+            case "unban":
+                return new UnBanMember();
             default:
-                return new NoCommand();
+                return null;
         }
     }
 }
