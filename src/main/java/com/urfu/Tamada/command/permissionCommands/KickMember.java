@@ -1,5 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.Permission;
@@ -14,24 +15,35 @@ public class KickMember extends Command {
         if (mess.equals("@everyone") && Objects.requireNonNull(event.getMember()).hasPermission(Permission.ADMINISTRATOR)) {
             event.getChannel().getMembers().forEach(x ->
             {
-                try { x.kick().queue();}
+                try {
+                    if (!x.hasPermission(Permission.ADMINISTRATOR))
+                        x.kick().queue();
+                    else{
+                        var nick = x.getNickname();
+                        if (nick == null)
+                            nick = x.getEffectiveName();
+                        Sender.send(event,
+                                "Такого человечка (" + nick+ ") нельзя кикнуть, так как он является администратором.");
+                    }
+                }
                 catch (net.dv8tion.jda.api.exceptions.HierarchyException e) {
-                    event.getChannel().sendMessage(e.getMessage()).queue();
+                    Sender.send(event, e.getMessage());
                 }
             });
         }
         else
-            event.getChannel().sendMessage("Куда ты пишешь, дифиченто").queue();
+            Sender.send(event, "Прав нет у тебя, друг.");
         var pair = CommandController.getMemberFromEvent(event);
         var member = pair.getMember();
-        var guild = pair.getGuild();
         System.out.println(event.getMessage().getContentRaw());
         if (Objects.requireNonNull(event.getMember()).hasPermission(Permission.ADMINISTRATOR)){
             Objects.requireNonNull(member)
                     .kick("Вы нам не понравились, обращайтесь в службу поддержи. До свидания!")
                     .queue();
+            Sender.send(event,
+                    "Пользователь" + member.getEffectiveName() + "кикнут.");
         }
         else
-            event.getChannel().sendMessage("Не делай так, пожалуйста!").queue();
+            Sender.send(event, "Не делай так, пожалуйста!");
     }
 }

@@ -6,10 +6,10 @@ import net.dv8tion.jda.api.entities.Activity;
 
 public class JDABot {
     public static void main(String[] args) throws Exception {
-        var token = Config.getToken("TOKEN");
-        JDABuilder.createLight(token)
+        new JDABuilder()
+                .setToken(Config.getToken("TOKEN"))
                 .addEventListeners(new CommandController())
-                .setActivity(Activity.listening("HUI"))
+                .setActivity(Activity.watching("в будущее России!"))
                 .build();
     }
 }
