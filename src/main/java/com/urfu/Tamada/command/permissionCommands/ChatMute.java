@@ -1,5 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.Permission;
@@ -24,7 +25,7 @@ public class ChatMute extends Command {
                         .putPermissionOverride(member)
                         .deny(Permission.MESSAGE_WRITE)
                         .queue());
-            event.getChannel().sendMessage(String.format("Пользователь %s замьючен", member.getNickname())).queue();
+            Sender.send(event, String.format("Пользователь %s замьючен", member.getNickname()));
         }
     }
 }

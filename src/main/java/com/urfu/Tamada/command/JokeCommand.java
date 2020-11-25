@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.*;
 
 import com.urfu.Tamada.DebugUtil;
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.database.Database;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -40,7 +41,7 @@ public class JokeCommand extends Command {
         var margin = "\n-------------------";
         for (var i = 0; i < anecdoteCount; i++)
             if (!Objects.requireNonNull(event.getMember()).getUser().isBot())
-                event.getChannel().sendMessage(getRandomAnecdote() + margin).queue();
+                Sender.send(event, getRandomAnecdote() + margin);
     }
 
     private int getAnecdoteCount(String[] arr, GuildMessageReceivedEvent event) {
@@ -49,11 +50,11 @@ public class JokeCommand extends Command {
         if (tryParseInt(integer))
             count = Integer.parseInt(integer);
         else {
-            event.getChannel().sendMessage("Write number ∈[1; 10]").queue();
+            Sender.send(event, "Write number ∈[1; 10]");
             return 0;
         }
         if (count <= 0 || count > 10) {
-            event.getChannel().sendMessage("Write correct number ∈[1; 10]").queue();
+            Sender.send(event, "Write correct number ∈[1; 10]");
             return 0;
         }
         return count;

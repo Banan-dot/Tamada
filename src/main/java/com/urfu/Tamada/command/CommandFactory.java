@@ -2,11 +2,9 @@ package com.urfu.Tamada.command;
 
 import com.urfu.Tamada.command.ascii.Ascii;
 import com.urfu.Tamada.command.ascii.AsciiLines;
-import com.urfu.Tamada.command.ascii.alias.Alias;
-import com.urfu.Tamada.command.ascii.crocodile.Crocodile;
+import com.urfu.Tamada.command.alias.Alias;
+import com.urfu.Tamada.command.crocodile.Crocodile;
 import com.urfu.Tamada.command.permissionCommands.*;
-
-import java.util.HashMap;
 
 public class CommandFactory {
     public Command getCommand(String commandName)
@@ -41,6 +39,7 @@ public class CommandFactory {
             case "delete":
                 return new DeleteMessages();
             case "croc":
+            case "crocodile":
                 return new Crocodile();
             case "alias":
                 return new Alias();

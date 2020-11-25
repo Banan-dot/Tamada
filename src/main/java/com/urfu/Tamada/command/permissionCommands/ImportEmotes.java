@@ -1,5 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.entities.Icon;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -17,14 +18,34 @@ public class ImportEmotes extends Command {
     @Override
     public void execute(GuildMessageReceivedEvent event) throws IOException {
         var path = ".\\resources\\img.png";
-        var besedu_id = "711138028462014575";
-        for(var emote: Objects.requireNonNull(event.getJDA().getGuildById(besedu_id)).getEmotes()){
+        var mess = event.getMessage().getContentRaw().split(" ");
+        if (mess.length == 1)
+        {
+            Sender.send(event, "Требуется id канала сервера");
+            return;
+        }
+        else if (!tryParseLong(mess[1])){
+            Sender.send(event, "Id должен быть числом");
+            return;
+        }
+        var id = mess[1];
+        for(var emote: Objects.requireNonNull(event.getJDA().getGuildById(id)).getEmotes()){
             var image = getIcon(emote.getImageUrl());
             ImageIO.write(image, "png", new File(path));
             File f = new File(path);
             event.getGuild().createEmote(emote.getName(), Icon.from(f)).queue();
         }
     }
+
+    private boolean tryParseLong(String value) {
+        try {
+            Long.parseLong(value);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     private BufferedImage getIcon(String photo_url){
         BufferedImage image = null;
         try {

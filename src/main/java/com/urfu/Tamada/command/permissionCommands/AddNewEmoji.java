@@ -1,5 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -9,7 +10,7 @@ public class AddNewEmoji extends Command {
     public void execute(GuildMessageReceivedEvent event) {
         var mess = event.getMessage().getContentRaw().split(" ");
         if (mess.length == 1) {
-            event.getChannel().sendMessage("Напишите название смайлика, пожалуйста.").queue();
+            Sender.send(event, "Напишите название смайлика, пожалуйста.");
             return;
         }
         Message.Attachment photo;
@@ -19,7 +20,7 @@ public class AddNewEmoji extends Command {
                     .getAttachments()
                     .get(0);
         } catch (IndexOutOfBoundsException e) {
-            event.getChannel().sendMessage("Отправьте фото, пожалуйста").queue();
+            Sender.send(event, "Отправьте фото, пожалуйста");
             return;
         }
         System.out.println("Name is " + mess[1]);
@@ -27,10 +28,10 @@ public class AddNewEmoji extends Command {
         var icon = photo.retrieveAsIcon().join();
         try {
             var t = event.getGuild().getEmotesByName(name, false).get(0);
-            event.getChannel().sendMessage("Смайл с таким именем уже существует").queue();
+            Sender.send(event, "Смайл с таким именем уже существует");
         } catch (IndexOutOfBoundsException e) {
             event.getGuild().createEmote(name, icon).queue();
-            event.getChannel().sendMessage("Смайл с именем " + name + " создан").queue();
+            Sender.send(event, "Смайл с именем " + name + " создан");
         }
     }
 }

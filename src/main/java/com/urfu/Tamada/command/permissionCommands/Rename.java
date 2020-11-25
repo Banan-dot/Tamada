@@ -1,5 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -21,10 +22,10 @@ public class Rename extends Command {
             requireNonNull(guild.getMemberById(member.getId())).modifyNickname(newName).queue();
         }
         catch (NullPointerException e){
-            event.getChannel().sendMessage("Ну не могу найти я мембера \\*\\*\\*\\*\\*, извини....").queue();
+            Sender.send(event, "Ну не могу найти я мембера \\*\\*\\*\\*\\*, извини....");
         }
         catch (HierarchyException e) {
-            event.getChannel().sendMessage("Не могу изменить ник мембера, у которого роль выше моей").queue();
+            Sender.send(event,"Не могу изменить ник мембера, у которого роль выше моей");
         }
     }
 }

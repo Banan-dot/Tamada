@@ -1,5 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -16,7 +17,7 @@ public class VoiceCommand {
         var mess = event.getMessage();
         if (member.getId().equals(Objects.requireNonNull(mess.getMember()).getId())
             || member.hasPermission(Permission.ADMINISTRATOR)){
-            event.getChannel().sendMessage("Дурак что-ли?").queue();
+            Sender.send(event, "Администратора нельзя исключить.");
         }
         else
             guild.mute(member, muteOrNot).queue();

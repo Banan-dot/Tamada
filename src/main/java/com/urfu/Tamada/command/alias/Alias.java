@@ -1,4 +1,4 @@
-package com.urfu.Tamada.command.ascii.alias;
+package com.urfu.Tamada.command.alias;
 
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.Permission;
