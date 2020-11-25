@@ -4,7 +4,6 @@ import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class DeleteMessages extends Command {

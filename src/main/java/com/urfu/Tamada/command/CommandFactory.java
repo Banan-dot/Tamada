@@ -43,6 +43,10 @@ public class CommandFactory {
                 return new Crocodile();
             case "alias":
                 return new Alias();
+            case "ban":
+                return new BanMember();
+            case "unban":
+                return new UnBanMember();
             default:
                 return new NoCommand();
         }

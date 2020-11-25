@@ -3,15 +3,12 @@ package com.urfu.Tamada.command.crocodile;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-import javax.lang.model.element.PackageElement;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -19,6 +16,7 @@ public class Crocodile extends Command {
     private final ArrayList<String> words;
     public static boolean Active;
     public String word;
+    public String channelId;
     public net.dv8tion.jda.api.entities.Member host;
 
     public Crocodile(){
@@ -46,7 +44,7 @@ public class Crocodile extends Command {
 
     public void sendMessageToPrivateChannel(GuildMessageReceivedEvent event){
         word = getRandomWord();
-        event.getMember().getUser().openPrivateChannel().queue((channel) ->
+        Objects.requireNonNull(event.getMember()).getUser().openPrivateChannel().queue((channel) ->
                 channel.sendMessage(word).queue());
 
     }
@@ -64,7 +62,6 @@ public class Crocodile extends Command {
             var channel = event.getGuild().createTextChannel(name).complete();
             channel.getMembers().forEach(i -> channel.createPermissionOverride(i).deny(Permission.VIEW_CHANNEL).queue());
             channel.sendMessage(getRandomWord()).queue();
-            //channel.putPermissionOverride(Objects.requireNonNull(event.getMember())).setAllow(Permission.ALL_PERMISSIONS).queue();
         }
     }
 
@@ -76,6 +73,10 @@ public class Crocodile extends Command {
     public void execute(GuildMessageReceivedEvent event) {
         var mess = event.getMessage().getContentRaw().split(" ");
 
+        if (mess.length == 2 && mess[1].equals("me")){
+            sendMessageToPrivateChannel(event);
+        }
+
         if (mess.length == 2 && mess[1].equals("end")){
             Active = false;
             Sender.send(event, "Игра окончена.");
@@ -84,6 +85,7 @@ public class Crocodile extends Command {
 
         if (mess.length == 2 && mess[1].equals("start")){
             Active = true;
+            channelId = event.getGuild().getId();
             Sender.send(event, "Игра начинается");
             fillWords();
             sendQuestion(event);
