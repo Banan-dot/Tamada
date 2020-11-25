@@ -4,8 +4,6 @@ import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.Permission;
-import net.dv8tion.jda.api.entities.IPermissionHolder;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
@@ -15,8 +13,7 @@ public class ChatMute extends Command {
     public void execute(GuildMessageReceivedEvent event) {
         var pair = CommandController.getMemberFromEvent(event);
         var member = pair.getMember();
-        if (Objects.requireNonNull(member).hasPermission(Permission.MESSAGE_WRITE))
-        {
+        if (Objects.requireNonNull(member).hasPermission(Permission.MESSAGE_WRITE)) {
             event
                 .getGuild()
                 .getTextChannels()

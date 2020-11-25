@@ -13,19 +13,20 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Crocodile extends Command {
-    private final ArrayList<String> words;
+    public final ArrayList<String> words;
     public static boolean Active;
     public String word;
     public String channelId;
     public net.dv8tion.jda.api.entities.Member host;
+    public String pathToWords = "./resources/crocodile_words.txt";
 
     public Crocodile(){
         words = new ArrayList<>();
     }
 
-    private void fillWords(){
+    public void fillWords(){
         try {
-            String pathToWords = "./resources/crocodile_words.txt";
+
             var reader = new BufferedReader(new FileReader(pathToWords));
             var line = reader.readLine();
             while (line != null) {
@@ -52,11 +53,11 @@ public class Crocodile extends Command {
         String name = "крокодил";
         try {
             event
-                .getGuild()
-                .getTextChannelsByName(name, true)
-                .get(0)
-                .sendMessage(getRandomWord())
-                .queue();
+                    .getGuild()
+                    .getTextChannelsByName(name, true)
+                    .get(0)
+                    .sendMessage(getRandomWord())
+                    .queue();
         }
         catch (Exception e) {
             var channel = event.getGuild().createTextChannel(name).complete();

@@ -4,6 +4,7 @@ import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
@@ -13,12 +14,11 @@ public class KickMember extends Command {
     public void execute(GuildMessageReceivedEvent event) {
         var mess = event.getMessage().getContentRaw().split(" ")[1];
         if (mess.equals("@everyone") && Objects.requireNonNull(event.getMember()).hasPermission(Permission.ADMINISTRATOR)) {
-            event.getChannel().getMembers().forEach(x ->
-            {
+            event.getChannel().getMembers().forEach(x -> {
                 try {
                     if (!x.hasPermission(Permission.ADMINISTRATOR))
                         x.kick().queue();
-                    else{
+                    else {
                         var nick = x.getNickname();
                         if (nick == null)
                             nick = x.getEffectiveName();

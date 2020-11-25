@@ -1,6 +1,5 @@
 package com.urfu.Tamada.command;
 
-import java.sql.*;
 import java.util.*;
 
 import com.urfu.Tamada.DebugUtil;
@@ -44,9 +43,12 @@ public class JokeCommand extends Command {
                 Sender.send(event, getRandomAnecdote() + margin);
     }
 
+
     private int getAnecdoteCount(String[] arr, GuildMessageReceivedEvent event) {
         var count = 1;
-        var integer = arr.length == 1 ? "1" : arr[1];
+        if (arr.length == 1)
+            return 1;
+        var integer = arr[1];
         if (tryParseInt(integer))
             count = Integer.parseInt(integer);
         else {

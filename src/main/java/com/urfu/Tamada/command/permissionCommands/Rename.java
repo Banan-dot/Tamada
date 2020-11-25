@@ -15,6 +15,7 @@ public class Rename extends Command {
         var messArr = event.getMessage().getContentRaw().split(" ");
         var pair = CommandController.getMemberFromEvent(event);
         var member = pair.getMember();
+        System.out.println(member);
         var guild = pair.getGuild();
         var newName = messArr[2];
         System.out.println(member);

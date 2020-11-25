@@ -19,12 +19,11 @@ public class ImportEmotes extends Command {
     public void execute(GuildMessageReceivedEvent event) throws IOException {
         var path = ".\\resources\\img.png";
         var mess = event.getMessage().getContentRaw().split(" ");
-        if (mess.length == 1)
-        {
+        if (mess.length == 1) {
             Sender.send(event, "Требуется id канала сервера");
             return;
         }
-        else if (!tryParseLong(mess[1])){
+        else if (!tryParseLong(mess[1])) {
             Sender.send(event, "Id должен быть числом");
             return;
         }
