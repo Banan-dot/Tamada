@@ -6,9 +6,10 @@ import com.urfu.Tamada.command.CommandFactory;
 import com.urfu.Tamada.command.Pair;
 import com.urfu.Tamada.command.alias.Alias;
 import com.urfu.Tamada.command.crocodile.Crocodile;
-import com.urfu.Tamada.command.permissionCommands.*;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import com.urfu.Tamada.command.permissionCommands.GetIdFromString;
+
 import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class CommandController extends ListenerAdapter {
         if (Crocodile.Active
                 && crocodiles.get(channelId).channelId != null
                 && (commandName.startsWith("!croc") || !commandName.startsWith("!"))
-                && !event.getMember().getId().equals(Config.getBotId())){
+                && !event.getMember().getId().equals(Config.getBotId())) {
             crocodiles.get(channelId).execute(event);
             if (crocodiles.get(channelId).word.equalsIgnoreCase(messageContent)) {
                 Sender.send(event, "Да. Ты угадал, поздравляю!");
@@ -40,8 +41,7 @@ public class CommandController extends ListenerAdapter {
             }
             return;
         }
-        if (commandName.startsWith(Config.getPrefix()))
-        {
+        if (commandName.startsWith(Config.getPrefix())) {
             var command = new CommandFactory().getCommand(commandName.substring(1));
             if (commandName.equals("!croc")) {
                 crocodiles.put(channelId, (Crocodile) command);

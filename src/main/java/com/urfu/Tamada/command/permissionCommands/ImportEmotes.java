@@ -6,8 +6,6 @@ import net.dv8tion.jda.api.entities.Icon;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +13,14 @@ import java.net.URL;
 import java.util.Objects;
 
 public class ImportEmotes extends Command {
+
+    private final String help = "Добавляет смайлы с указанного сервера, на котором есть этот бот. Если у вас есть для этого права, конечно.";
+
+    @Override
+    public void getHelp(GuildMessageReceivedEvent event) {
+        Sender.send(event, help);
+    }
+
     @Override
     public void execute(GuildMessageReceivedEvent event) throws IOException {
         var path = ".\\resources\\img.png";

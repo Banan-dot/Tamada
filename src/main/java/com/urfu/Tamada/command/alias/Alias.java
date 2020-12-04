@@ -1,5 +1,6 @@
 package com.urfu.Tamada.command.alias;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -14,6 +15,13 @@ public class Alias extends Command {
     private Timer timer;
     private final int pointer = 0;
     private net.dv8tion.jda.api.entities.Member leading;
+
+    private final String help = "Игра в алиас.";
+
+    @Override
+    public void getHelp(GuildMessageReceivedEvent event) {
+        Sender.send(event, help);
+    }
 
 
     public Alias(){

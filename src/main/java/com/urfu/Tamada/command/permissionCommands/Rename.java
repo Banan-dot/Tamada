@@ -6,11 +6,18 @@ import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.exceptions.HierarchyException;
 
-import java.util.Objects;
-
 import static java.util.Objects.*;
 
 public class Rename extends Command {
+
+    private final String help = "Меняет имя указанного пользователя на канале. Если у вас есть для этого права, конечно.";
+
+    @Override
+    public void getHelp(GuildMessageReceivedEvent event) {
+        Sender.send(event, help);
+    }
+
+    @Override
     public void execute(GuildMessageReceivedEvent event){
         var messArr = event.getMessage().getContentRaw().split(" ");
         var pair = CommandController.getMemberFromEvent(event);
