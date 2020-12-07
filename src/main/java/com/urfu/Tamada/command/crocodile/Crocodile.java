@@ -20,6 +20,14 @@ public class Crocodile extends Command {
     public net.dv8tion.jda.api.entities.Member host;
     public String pathToWords = "./resources/crocodile_words.txt";
 
+
+    private final String help = "Игра в крокодила.";
+
+    @Override
+    public void getHelp(GuildMessageReceivedEvent event) {
+        Sender.send(event, help);
+    }
+
     public Crocodile(){
         words = new ArrayList<>();
     }

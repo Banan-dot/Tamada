@@ -1,9 +1,17 @@
 package com.urfu.Tamada.command.ascii;
 
+import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class Ascii extends Command {
+
+    private final String help = "Делает аски-арт из приккрепленной картинки.";
+
+    @Override
+    public void getHelp(GuildMessageReceivedEvent event) {
+        Sender.send(event, help);
+    }
 
     @Override
     public void execute(GuildMessageReceivedEvent event) {

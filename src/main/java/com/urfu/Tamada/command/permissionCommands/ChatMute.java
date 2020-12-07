@@ -9,6 +9,13 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import java.util.Objects;
 
 public class ChatMute extends Command {
+    private final String help = "Мьютит чат для указанного пользователя. Если у вас есть для этого права, конечно.";
+
+    @Override
+    public void getHelp(GuildMessageReceivedEvent event) {
+        Sender.send(event, help);
+    }
+
     @Override
     public void execute(GuildMessageReceivedEvent event) {
         var pair = CommandController.getMemberFromEvent(event);

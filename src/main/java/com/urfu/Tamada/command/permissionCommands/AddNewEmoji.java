@@ -3,10 +3,16 @@ package com.urfu.Tamada.command.permissionCommands;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 public class AddNewEmoji extends Command {
+    public final String help = "Добавляет эмоции с картинки в сообщении с командой.";
+
+    @Override
+    public void getHelp(GuildMessageReceivedEvent event) {
+        Sender.send(event, help);
+    }
+
     @Override
     public void execute(GuildMessageReceivedEvent event) {
         var mess = event.getMessage().getContentRaw().split(" ");
