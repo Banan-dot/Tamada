@@ -21,9 +21,9 @@ public class Rename extends Command {
     public void execute(GuildMessageReceivedEvent event){
         var messArr = event.getMessage().getContentRaw().split(" ");
         var pair = CommandController.getMemberFromEvent(event);
-        var member = pair.getMember();
+        var member = pair.getFirst();
         System.out.println(member);
-        var guild = pair.getGuild();
+        var guild = pair.getSecond();
         var newName = messArr[2];
         System.out.println(member);
         try {

@@ -4,7 +4,8 @@ import java.util.*;
 
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.DebugUtil;
-import com.urfu.Tamada.command.database.Database;
+import com.urfu.Tamada.command.database.anecdotes.Anecdotes;
+import com.urfu.Tamada.command.database.banList.BanTable;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 @CommandName(name = "Anek")
@@ -17,14 +18,12 @@ public class JokeCommand extends Command {
     }
 
     private String getRandomAnecdote() {
-        var rnd_at = new Random().nextInt(130256);
-        var anecdote = new Database().getAnecdoteById(rnd_at);
+        var anecdote = new Anecdotes().getRandomAnecdote();
         anecdote = parseRawString(anecdote);
-        new DebugUtil().simpleLogger(anecdote, rnd_at);
         return anecdote;
     }
 
-    private String parseRawString(String rawJoke) {
+    public static String parseRawString(String rawJoke) {
         return rawJoke
                 .replace("&quot;", "\"")
                 .replace("\"\"", "\"")

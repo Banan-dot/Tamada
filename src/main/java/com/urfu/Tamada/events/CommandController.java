@@ -1,5 +1,6 @@
 package com.urfu.Tamada.events;
 
+import com.urfu.Tamada.BanList;
 import com.urfu.Tamada.Config;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.CommandFactory;
@@ -18,22 +19,16 @@ import java.util.Objects;
 
 public class CommandController extends ListenerAdapter {
     private final HashMap<Long, Crocodile> crocodiles = new HashMap<>();
-    private Alias alias;
+    private final HashMap<Long, Alias> aliases = new HashMap<>();
 
     @Override
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
-        System.out.println(event.getMessage().getContentRaw());
-        var message = event.getMessage();
         var channelId = event.getGuild().getIdLong();
-        var id = Objects.requireNonNull(event.getMember()).getIdLong();
-        if (Config.getBanList().isInBanList(id))
-            message.delete().queue();
+        if (BanList.isInBanList(event.getGuild().getIdLong(), event.getMember().getIdLong()))
+            event.getMessage().delete().queue();
         var messageContent = event.getMessage().getContentRaw();
         var commandName = messageContent.split(" ")[0];
-        if (Crocodile.Active
-                && crocodiles.get(channelId).channelId != null
-                && (commandName.startsWith("!croc") || !commandName.startsWith("!"))
-                && !event.getMember().getId().equals(Config.getBotId())) {
+        if (isCrocodileActivate(channelId, commandName, event)) {
             crocodiles.get(channelId).execute(event);
             if (crocodiles.get(channelId).word.equalsIgnoreCase(messageContent)) {
                 Sender.send(event, "Да. Ты угадал, поздравляю!");
@@ -41,28 +36,38 @@ public class CommandController extends ListenerAdapter {
             }
             return;
         }
-        if (commandName.startsWith(Config.getPrefix())) {
-            var command = new CommandFactory().getCommand(commandName.substring(1));
-            if (commandName.equals("!croc")) {
-                crocodiles.put(channelId, (Crocodile) command);
-                crocodiles.get(channelId).execute(event);
-                return;
-            }
-            try {
-                command.execute(event);
-            } catch (InterruptedException | IOException e) {
-                e.printStackTrace();
-            }
-        }
+
+        if (commandName.startsWith(Config.getPrefix()))
+            handleCommand(commandName, event, channelId);
     }
 
-    public static Pair getMemberFromEvent(GuildMessageReceivedEvent event){
+    private void handleCommand(String commandName, GuildMessageReceivedEvent event, Long channelId){
+        var command = new CommandFactory().getCommand(commandName.substring(1));
+        if (commandName.equals("!croc")) {
+            crocodiles.put(channelId, (Crocodile) command);
+            crocodiles.get(channelId).execute(event);
+            return;
+        }
+        try { command.execute(event); }
+        catch (InterruptedException | IOException e) { e.printStackTrace();}
+    }
+
+    private boolean isCrocodileActivate(
+            Long channelId, String commandName, GuildMessageReceivedEvent event){
+        return Crocodile.Active
+                && crocodiles.get(channelId).channelId != null
+                && (commandName.startsWith("!croc") || !commandName.startsWith("!"))
+                && !Objects.requireNonNull(event.getMember()).getId().equals(Config.getBotId());
+    }
+
+    public static Pair<net.dv8tion.jda.api.entities.Member, net.dv8tion.jda.api.entities.Guild>
+    getMemberFromEvent(GuildMessageReceivedEvent event){
         var guild = event.getJDA().getGuildById(Objects.requireNonNull(event.getMember()).getGuild().getId());
         var mess = event.getMessage().getContentRaw();
         assert guild != null;
         var id = Long.parseLong(new GetIdFromString().getIdFromString(mess));
         var member = event.getGuild().getMemberById(String.valueOf(id));
         assert member != null;
-        return new Pair(member, guild);
+        return Pair.create(member, guild);
     }
 }

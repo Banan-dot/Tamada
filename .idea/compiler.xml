@@ -6,13 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Hello worl" />
         <module name="Tamada" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Hello worl" target="10" />
-      <module name="Tamada" target="10" />
+      <module name="Tamada" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>

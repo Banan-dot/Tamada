@@ -1,61 +1,43 @@
 package com.urfu.Tamada;
 
+import com.urfu.Tamada.command.Pair;
+import com.urfu.Tamada.command.database.banList.BanTable;
+
 import java.io.*;
 import java.util.HashSet;
 
 public class BanList {
-    private final HashSet<Long> banList;
-    private  final int count;
-    private final String path = "./resources/ban_list.txt";
+    public static  HashSet<Pair<Long, Long>> banList;
+    public static  BanTable banListBD;
 
     public BanList(){
         banList = new HashSet<>();
-        count = 0;
-        fillBanList();
+        banListBD = new BanTable();
     }
 
     public void fillBanList(){
-        try {
-            var reader = new BufferedReader(new FileReader(path));
-            var line = reader.readLine();
-            while (line != null) {
-                banList.add(Long.parseLong(line));
-                line = reader.readLine();
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BanList.banListBD.getBannedUsers();
     }
 
-    public void writeToFile(long channelId, long memberId){
-        try {
-            var writer = new BufferedWriter(new FileWriter(path));
-            writer.append(String.valueOf(channelId)).append(".").append(String.valueOf(memberId));
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void removeFromBanList(long channelId, long memberId){
+        BanList.banList.remove(Pair.create(memberId, channelId));
+        BanList.banListBD.removeFromBanList(memberId, channelId);
     }
 
-    public void removeFromBanList(long l){
-        banList.remove(l);
+    public static void addToBanList(long channelId, long memberId){
+        BanList.banList.add(Pair.create(memberId, channelId));
+        BanList.banListBD.addToBanList(memberId, channelId);
     }
 
-    public void addToBanList(long channelId, long memberId){
-        //banList.add(channelId, memberId);
-        writeToFile(channelId, memberId);
+    public static boolean isInBanList(long channelId, long memberId){
+        return BanList.banList.contains(Pair.create(memberId, channelId));
     }
 
-    public boolean isInBanList(long l){
-        return banList.contains(l);
+    public static HashSet<Pair<Long, Long>> getBanList(){
+        return BanList.banList;
     }
 
-    public HashSet<Long> getBanList(){
-        return banList;
-    }
-
-    public int getCount(){
-        return count;
+    public static int getCount(){
+        return banList.size();
     }
 }

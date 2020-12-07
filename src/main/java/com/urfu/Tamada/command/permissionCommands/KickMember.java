@@ -41,7 +41,7 @@ public class KickMember extends Command {
         else
             Sender.send(event, "Прав нет у тебя, друг.");
         var pair = CommandController.getMemberFromEvent(event);
-        var member = pair.getMember();
+        var member = pair.getFirst();
         System.out.println(event.getMessage().getContentRaw());
         if (Objects.requireNonNull(event.getMember()).hasPermission(Permission.ADMINISTRATOR)){
             Objects.requireNonNull(member)

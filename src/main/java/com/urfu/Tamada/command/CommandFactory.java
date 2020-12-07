@@ -5,52 +5,34 @@ import com.urfu.Tamada.command.ascii.Ascii;
 import com.urfu.Tamada.command.ascii.AsciiLines;
 import com.urfu.Tamada.command.crocodile.Crocodile;
 import com.urfu.Tamada.command.permissionCommands.*;
+import com.urfu.Tamada.command.permissionCommands.chatCommands.*;
+import com.urfu.Tamada.command.permissionCommands.voiceCommands.VoiceMute;
+import com.urfu.Tamada.command.permissionCommands.voiceCommands.VoiceUnmute;
 
 public class CommandFactory {
     public Command getCommand(String commandName)
     {
-        System.out.println(commandName);
-        switch (commandName.toLowerCase())
-        {
-            case "help":
-                return new HelpCommand();
-            case "анек":
-                return new JokeCommand();
-            case "mute":
-                return new VoiceMute();
-            case "unmute":
-                return new VoiceUnmute();
-            case "rename":
-                return new Rename();
-            case "kick":
-                return new KickMember();
-            case "mute_t":
-                return new ChatMute();
-            case "ascii":
-                return new Ascii();
-            case "hd":
-                return new AsciiLines();
-            case "mm":
-                return new WriteMembers();
-            case "unmute_t":
-                return new ChatUnmute();
-            case "addsmile":
-                return new AddNewEmoji();
-            case "importemotes":
-                return new ImportEmotes();
-            case "delete":
-                return new DeleteMessages();
-            case "croc":
-            case "crocodile":
-                return new Crocodile();
-            case "alias":
-                return new Alias();
-            case "ban":
-                return new BanMember();
-            case "unban":
-                return new UnBanMember();
-            default:
-                return null;
-        }
+        return switch (commandName.toLowerCase()) {
+            case "bl" -> new ViewBanList();
+            case "help" -> new HelpCommand();
+            case "анек" -> new JokeCommand();
+            case "mute" -> new VoiceMute();
+            case "unmute" -> new VoiceUnmute();
+            case "rename" -> new Rename();
+            case "kick" -> new KickMember();
+            case "mute_t" -> new ChatMute();
+            case "ascii" -> new Ascii();
+            case "hd" -> new AsciiLines();
+            case "mm" -> new WriteMembers();
+            case "unmute_t" -> new ChatUnmute();
+            case "addsmile" -> new AddNewEmoji();
+            case "importemotes" -> new ImportEmotes();
+            case "delete" -> new DeleteMessages();
+            case "croc", "crocodile" -> new Crocodile();
+            case "alias" -> new Alias();
+            case "ban" -> new BanMember();
+            case "unban" -> new UnBanMember();
+            default -> new NoCommand();
+        };
     }
 }

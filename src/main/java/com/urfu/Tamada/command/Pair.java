@@ -1,22 +1,37 @@
 package com.urfu.Tamada.command;
 
-import net.dv8tion.jda.api.entities.Guild;
 
+public class Pair<X, Y> {
+    private final X first;
+    private final Y second;
 
-public class Pair {
-    private final net.dv8tion.jda.api.entities.Member member;
-    private final Guild guild;
+    public Pair(X first, Y second) {
+        assert first != null;
+        assert second != null;
 
-    public Pair(net.dv8tion.jda.api.entities.Member first, Guild second) {
-        this.member = first;
-        this.guild = second;
+        this.first = first;
+        this.second = second;
     }
 
-    public net.dv8tion.jda.api.entities.Member getMember() {
-        return member;
+    public static <X, Y> Pair <X, Y> create(X a, Y b) {
+        return new Pair<>(a, b);
     }
 
-    public Guild getGuild() {
-        return guild;
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Pair pairObject)) return false;
+        return this.first.equals(pairObject.getFirst()) &&
+                this.second.equals(pairObject.getSecond());
+    }
+
+    @Override
+    public int hashCode() { return first.hashCode() ^ second.hashCode(); }
+
+    public X getFirst() {
+        return first;
+    }
+
+    public Y getSecond() {
+        return second;
     }
 }
