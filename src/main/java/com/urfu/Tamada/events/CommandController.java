@@ -11,7 +11,7 @@ import com.urfu.Tamada.command.crocodile.Crocodile;
 import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import com.urfu.Tamada.command.permissions.PermissionCheck;
 import com.urfu.Tamada.command.permissions.StatesOfPermissionsCheck;
-import com.urfu.Tamada.command.wrappers.MemberWrapper;
+import com.urfu.Tamada.command.wrappers.MemberPermissionsWrapper;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import com.urfu.Tamada.command.permissionCommands.GetIdFromString;
@@ -47,16 +47,16 @@ public class CommandController extends ListenerAdapter {
     }
 
     private boolean checkPermissions(GuildMessageReceivedEvent event, Command command) {
-        var member = new MemberWrapper(event.getMember());
+        var member = new MemberPermissionsWrapper(event.getMember());
         var errorAnswers = new HashMap<StatesOfPermissionsCheck, String>();
-        errorAnswers.put(StatesOfPermissionsCheck.MASTER_NOT_ADMINISTRATOR, "Прав нет у тебя, друг.");
-        errorAnswers.put(StatesOfPermissionsCheck.SLAVE_IS_ADMINISTRATOR, "Не делай так, пожалуйста!");
+        errorAnswers.put(StatesOfPermissionsCheck.ACTIVE_MEMBER_NOT_ADMINISTRATOR, "Прав нет у тебя, друг.");
+        errorAnswers.put(StatesOfPermissionsCheck.PASSIVE_MEMBER_IS_ADMINISTRATOR, "Не делай так, пожалуйста!");
         var permissionCheck = new PermissionCheck(command);
-        permissionCheck.CheckMaster(member);
+        permissionCheck.CheckActiveMember(member);
         if (command instanceof PermissionCommandWithMembers) {
             var pair = getMemberFromEvent(event);
-            member = new MemberWrapper(pair.getFirst());
-            permissionCheck.CheckSlave(member);
+            member = new MemberPermissionsWrapper(pair.getFirst());
+            permissionCheck.CheckPassiveMember(member);
         }
         var permissionCheckState = permissionCheck.getPermissionCheckState();
         if (errorAnswers.containsKey(permissionCheckState)) {

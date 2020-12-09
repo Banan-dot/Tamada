@@ -1,6 +1,6 @@
 package com.urfu.Tamada.command.permissions;
 
-import com.urfu.Tamada.command.wrappers.IMemberWrapper;
+import com.urfu.Tamada.command.wrappers.IMemberPermissionsWrapper;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.Permission;
 
@@ -13,19 +13,19 @@ public class PermissionCheck {
         permissionCheckState = StatesOfPermissionsCheck.UNDEFINED;
     }
 
-    public void CheckMaster(IMemberWrapper member) {
+    public void CheckActiveMember(IMemberPermissionsWrapper member) {
         var memberPermissions = member.getPermissions();
         if (command instanceof PermissionCommand)
             if (!memberPermissions.contains(Permission.ADMINISTRATOR))
-                permissionCheckState = StatesOfPermissionsCheck.MASTER_NOT_ADMINISTRATOR;
+                permissionCheckState = StatesOfPermissionsCheck.ACTIVE_MEMBER_NOT_ADMINISTRATOR;
 
     }
 
-    public void CheckSlave(IMemberWrapper member) {
+    public void CheckPassiveMember(IMemberPermissionsWrapper member) {
         var memberPermissions = member.getPermissions();
         if (command instanceof PermissionCommand)
             if (memberPermissions.contains(Permission.ADMINISTRATOR))
-                permissionCheckState = StatesOfPermissionsCheck.SLAVE_IS_ADMINISTRATOR;
+                permissionCheckState = StatesOfPermissionsCheck.PASSIVE_MEMBER_IS_ADMINISTRATOR;
     }
 
     public StatesOfPermissionsCheck getPermissionCheckState() {
