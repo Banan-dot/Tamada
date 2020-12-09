@@ -12,13 +12,6 @@ public class VoiceCommand {
         var pair = CommandController.getMemberFromEvent(event);
         var member = pair.getFirst();
         var guild = pair.getSecond();
-        System.out.println(member.getNickname());
-        var mess = event.getMessage();
-        if (member.getId().equals(Objects.requireNonNull(mess.getMember()).getId())
-            || member.hasPermission(Permission.ADMINISTRATOR)){
-            event.getChannel().sendMessage("Дурак что-ли?").queue();
-        }
-        else
-            guild.mute(member, muteOrNot).queue();
+        guild.mute(member, muteOrNot).queue();
     }
 }

@@ -1,6 +1,7 @@
 package com.urfu.Tamada;
 
 import com.urfu.Tamada.command.DailyAnecdote;
+import com.urfu.Tamada.command.Translator;
 import com.urfu.Tamada.command.database.Data;
 import com.urfu.Tamada.command.database.DataBase;
 import com.urfu.Tamada.events.CommandController;
@@ -11,27 +12,26 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
+import javax.sound.midi.Track;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
 public class JDABot {
-    private static final String url = ".\\resources\\Data.db";
-
     public static void main(String[] args) throws Exception {
-        var database = new DataBase(url);
+        var database = new DataBase(Config.getUrl());
         Data.setDatabase(database);
-        var bl = new BanList();
-        bl.fillBanList();
+        new BanList().fillBanList();
+        new Translator().fillHashMap();
         var bot = JDABuilder.createDefault(Config.getToken("TOKEN"))
                 .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
                 .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
                 .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new CommandController())
-                .setActivity(Activity.watching("в будущее России"))
+                .setActivity(Activity.watching("аниме."))
                 .build();
         setTimer(bot);
-        System.out.println("Бот запустился...");
     }
 
     private static void setTimer(JDA jda){
@@ -43,6 +43,6 @@ public class JDABot {
         Timer timer = new Timer();
         timer.schedule(new DailyAnecdote(jda),
                 today.getTime(),
-                TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS));
+                TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS));
     }
 }

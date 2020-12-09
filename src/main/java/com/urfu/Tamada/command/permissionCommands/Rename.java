@@ -2,13 +2,14 @@ package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.exceptions.HierarchyException;
 
 import static java.util.Objects.*;
 
-public class Rename extends Command {
+public class Rename extends PermissionCommandWithMembers {
 
     private final String help = "Меняет имя указанного пользователя на канале. Если у вас есть для этого права, конечно.";
 
@@ -25,10 +26,7 @@ public class Rename extends Command {
         System.out.println(member);
         var guild = pair.getSecond();
         var newName = messArr[2];
-        System.out.println(member);
-        try {
-            requireNonNull(guild.getMemberById(member.getId())).modifyNickname(newName).queue();
-        }
+        try {requireNonNull(guild.getMemberById(member.getId())).modifyNickname(newName).queue();}
         catch (NullPointerException e){
             Sender.send(event, "Ну не могу найти я мембера \\*\\*\\*\\*\\*, извини....");
         }

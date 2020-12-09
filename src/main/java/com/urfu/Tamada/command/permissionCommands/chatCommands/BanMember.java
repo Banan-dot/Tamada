@@ -4,13 +4,15 @@ import com.urfu.Tamada.BanList;
 import com.urfu.Tamada.Config;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.permissions.PermissionCommand;
+import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
 
-public class BanMember extends Command {
+public class BanMember extends PermissionCommandWithMembers {
     private final String help = "Банит укзананого участника. Если у вас есть для этого права, конечно.";
 
     @Override
@@ -30,12 +32,6 @@ public class BanMember extends Command {
 
         if (BanList.isInBanList(guildId, id))
             Sender.send(event, "Данный человек уже в бане");
-        else if (Objects.requireNonNull(event.getMember()).hasPermission(Permission.ADMINISTRATOR))
-            if (!pair.getFirst().hasPermission(Permission.ADMINISTRATOR))
-                BanList.addToBanList(event.getGuild().getIdLong(), id);
-            else
-                Sender.send(event, "Админа нельзя забанить");
-        else
-            Sender.send(event, "Не делай так, пожалуйста!");
+       BanList.addToBanList(event.getGuild().getIdLong(), id);
     }
 }

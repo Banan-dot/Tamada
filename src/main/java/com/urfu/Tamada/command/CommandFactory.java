@@ -15,13 +15,15 @@ public class CommandFactory {
         return switch (commandName.toLowerCase()) {
             case "bl" -> new ViewBanList();
             case "help" -> new HelpCommand();
-            case "анек" -> new JokeCommand();
+            case "anec" -> new JokeCommand();
             case "mute" -> new VoiceMute();
+            case "tr" -> new Translator();
             case "unmute" -> new VoiceUnmute();
             case "rename" -> new Rename();
             case "kick" -> new KickMember();
             case "mute_t" -> new ChatMute();
             case "ascii" -> new Ascii();
+            case "sl" -> new SwitchLanguage();
             case "hd" -> new AsciiLines();
             case "mm" -> new WriteMembers();
             case "unmute_t" -> new ChatUnmute();

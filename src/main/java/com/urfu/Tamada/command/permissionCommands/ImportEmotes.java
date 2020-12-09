@@ -2,6 +2,8 @@ package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.permissions.PermissionCommand;
+import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import net.dv8tion.jda.api.entities.Icon;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -12,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 
-public class ImportEmotes extends Command {
+public class ImportEmotes extends PermissionCommand {
 
     private final String help = "Добавляет смайлы с указанного сервера, на котором есть этот бот. Если у вас есть для этого права, конечно.";
 

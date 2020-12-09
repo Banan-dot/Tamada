@@ -4,11 +4,12 @@ import com.urfu.Tamada.BanList;
 import com.urfu.Tamada.Config;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 
-public class UnBanMember extends Command {
+public class UnBanMember extends PermissionCommandWithMembers {
 
     private final String help = "Убирает указанного пользователя из бан-листа на канале. Если у вас есть для этого права, конечно.";
 

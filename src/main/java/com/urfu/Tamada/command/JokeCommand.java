@@ -8,7 +8,6 @@ import com.urfu.Tamada.command.database.anecdotes.Anecdotes;
 import com.urfu.Tamada.command.database.banList.BanTable;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-@CommandName(name = "Anek")
 public class JokeCommand extends Command {
     private final String help = "Выдает рандомный анекдот.";
 

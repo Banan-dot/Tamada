@@ -2,7 +2,7 @@ package com.urfu.Tamada.command.crocodile;
 
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
-import net.dv8tion.jda.api.Permission;
+import com.urfu.Tamada.command.Translator;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.io.BufferedReader;
@@ -34,7 +34,6 @@ public class Crocodile extends Command {
 
     public void fillWords(){
         try {
-
             var reader = new BufferedReader(new FileReader(pathToWords));
             var line = reader.readLine();
             while (line != null) {
@@ -54,24 +53,8 @@ public class Crocodile extends Command {
     public void sendMessageToPrivateChannel(GuildMessageReceivedEvent event){
         word = getRandomWord();
         Objects.requireNonNull(event.getMember()).getUser().openPrivateChannel().queue((channel) ->
-                channel.sendMessage(word).queue());
+                channel.sendMessage(Translator.traslate(Sender.language, word)).queue());
 
-    }
-    public void sendMessageToChannel(GuildMessageReceivedEvent event){
-        String name = "крокодил";
-        try {
-            event
-                    .getGuild()
-                    .getTextChannelsByName(name, true)
-                    .get(0)
-                    .sendMessage(getRandomWord())
-                    .queue();
-        }
-        catch (Exception e) {
-            var channel = event.getGuild().createTextChannel(name).complete();
-            channel.getMembers().forEach(i -> channel.createPermissionOverride(i).deny(Permission.VIEW_CHANNEL).queue());
-            channel.sendMessage(getRandomWord()).queue();
-        }
     }
 
     private void sendQuestion(GuildMessageReceivedEvent event){
