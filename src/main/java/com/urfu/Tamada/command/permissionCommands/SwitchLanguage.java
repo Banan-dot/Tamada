@@ -24,7 +24,8 @@ public class SwitchLanguage extends Command {
                   .append(" ")
                   .append(Translator.languages.get(key))
                   .append("\n");
-            Sender.send(event, sb.toString());
+            Sender.send(event, sb.substring(0, sb.length() / 2));
+            Sender.send(event, sb.substring(sb.length() / 2, sb.length()-1));
         }
     }
 
