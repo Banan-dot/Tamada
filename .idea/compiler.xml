@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="15">
-      <module name="Tamada" target="1.8" />
+      <module name="Tamada" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>
