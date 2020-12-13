@@ -1,1 +1,1 @@
-web: java %JAVA_OPTS% -cp target\classes;target\dependency\* Tamada
+worker: sh target/bin/Tamada
