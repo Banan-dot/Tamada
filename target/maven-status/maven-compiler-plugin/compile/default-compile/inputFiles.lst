@@ -19,7 +19,6 @@ C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\ur
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\DeleteMessages.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceUnmute.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\wrappers\MemberPermissionsWrapperTest.java
-C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\JDABot.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\crocodile\Crocodile.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\BanList.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\alias\Alias.java
@@ -31,6 +30,7 @@ C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\ur
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceCommand.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\WriteMembers.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\NoCommand.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\Main.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\GetIdFromString.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\ChatMute.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\Pair.java

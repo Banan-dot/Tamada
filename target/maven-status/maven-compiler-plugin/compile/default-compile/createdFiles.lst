@@ -22,6 +22,7 @@ com\urfu\Tamada\Sender.class
 com\urfu\Tamada\command\database\wrappedDB\WrappedBanList.class
 com\urfu\Tamada\events\CommandController.class
 com\urfu\Tamada\command\permissionCommands\SwitchLanguage.class
+com\urfu\Tamada\Main.class
 com\urfu\Tamada\command\ascii\Ascii.class
 com\urfu\Tamada\command\database\wrappedDB\WrappedData.class
 com\urfu\Tamada\command\database\anecdotes\Anecdotes.class
@@ -41,7 +42,6 @@ com\urfu\Tamada\command\permissionCommands\KickMember.class
 com\urfu\Tamada\command\wrappers\MemberPermissionsWrapperTest.class
 com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceUnmute.class
 com\urfu\Tamada\command\ascii\AsciiLines.class
-com\urfu\Tamada\JDABot.class
 com\urfu\Tamada\command\CommandFactory.class
 com\urfu\Tamada\command\permissions\PermissionCheck.class
 com\urfu\Tamada\command\permissionCommands\chatCommands\BanMember.class

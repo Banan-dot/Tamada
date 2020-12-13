@@ -96,5 +96,5 @@ exec "$JAVACMD" $JAVA_OPTS \
   -Dapp.pid="$$" \
   -Dapp.repo="$REPO" \
   -Dbasedir="$BASEDIR" \
-  main.java.com.urfu.Tamada.JDABot \
+  main.java.com.urfu.Tamada.Main \
   "$@"
