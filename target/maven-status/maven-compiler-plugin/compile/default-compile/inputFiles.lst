@@ -1,21 +1,49 @@
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\ascii\AsciiLines.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\DebugUtil.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\ascii\Ascii.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\events\CommandController.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\KickMember.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\Database.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\VoiceUnmute.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\VoiceCommand.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\JDABot.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\CommandFactory.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\NoCommand.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\JokeCommand.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\CommandName.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\Pair.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\Rename.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\CommandData.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\ChatMute.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\Config.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\GetIdFromString.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\Command.java
-C:\Users\РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ\OneDrive\Р Р°Р±РѕС‡РёР№ СЃС‚РѕР»\Tamada\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\VoiceMute.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\Command.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\banList\BanTable.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceMute.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\CommandFactory.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\UnBanMember.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\Translator.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\ViewBanList.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\JokeCommand.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissions\PermissionCommand.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\anecdotes\Anecdotes.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\wrappedDB\WrappedAnecdote.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\Data.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\Rename.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\DataBase.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissions\PermissionCheck.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\Sender.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\wrappers\IMemberPermissionsWrapper.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\KickMember.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\DeleteMessages.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceUnmute.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\wrappers\MemberPermissionsWrapperTest.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\JDABot.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\crocodile\Crocodile.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\BanList.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\alias\Alias.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\HelpCommand.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\ascii\Ascii.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\DailyAnecdote.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\AddNewEmoji.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\ImportEmotes.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceCommand.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\WriteMembers.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\NoCommand.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\GetIdFromString.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\ChatMute.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\Pair.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\ChatUnmute.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\SwitchLanguage.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\wrappers\MemberPermissionsWrapper.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\wrappedDB\WrappedData.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\Config.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\database\wrappedDB\WrappedBanList.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\DebugUtil.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissions\StatesOfPermissionsCheck.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissions\PermissionCommandWithMembers.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\ascii\AsciiLines.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\BanMember.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\ascii\AsciiExecutor.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\events\CommandController.java
