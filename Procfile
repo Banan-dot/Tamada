@@ -1,1 +1,1 @@
-web: java -cp target/classes/:target/dependency/* main.java.com.urfu.Tamada.Main
+worker: sh target/bin/Tamada

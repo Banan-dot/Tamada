@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <groupId>com.urfu</groupId>
+  <groupId>main.java.com.urfu</groupId>
   <artifactId>Tamada</artifactId>
   <versioning>
     <versions>
       <version>1.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20201213164007</lastUpdated>
+    <lastUpdated>20201213164906</lastUpdated>
   </versioning>
 </metadata>
