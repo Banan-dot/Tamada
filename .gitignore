@@ -2,7 +2,6 @@
 .idea/
 
 # bytesode
-.target/
 
 SimpleJokesLogger.txt
 id.txt
@@ -21,7 +20,6 @@ id.txt
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -33,6 +31,3 @@ id.txt
 hs_err_pid*
 
 # Config files
-*.properties
-local.properties
-project.properties
