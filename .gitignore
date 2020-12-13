@@ -7,7 +7,7 @@ SimpleJokesLogger.txt
 id.txt
 
 # Compiled class file
-*.class
+
 
 # Log file
 *.log
