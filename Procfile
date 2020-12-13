@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes/:target/dependency/* main.java.com.urfu.Tamada.Main
+web: java $JAVA_OPTS -cp target/classes/:target/dependency/* com.urfu.Tamada.Main
