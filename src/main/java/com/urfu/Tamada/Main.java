@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
-public class JDABot {
+public class Main {
     public static void main(String[] args) throws Exception {
         var database = new DataBase(Config.getUrl());
         Data.setDatabase(database);
