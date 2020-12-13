@@ -25,7 +25,7 @@
                     <appName>serene-temple-04007</appName>
                     <processTypes>
                         <web>
-                            java $JAVA_OPTS -cp target/classes:target/dependency/* main.java.com.urfu.Tamada.Main
+                            java $JAVA_OPTS -cp --enable-preview target/classes:target/dependency/* main.java.com.urfu.Tamada.Main
                         </web>
                     </processTypes>
                 </configuration>
