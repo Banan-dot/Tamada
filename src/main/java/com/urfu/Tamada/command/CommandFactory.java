@@ -25,7 +25,9 @@ public class CommandFactory {
             case "ascii" -> new Ascii();
             case "sl" -> new SwitchLanguage();
             case "hd" -> new AsciiLines();
+            case "p" -> new Ping();
             case "mm" -> new WriteMembers();
+            case "ll" -> new ViewLanguage();
             case "unmute_t" -> new ChatUnmute();
             case "addsmile" -> new AddNewEmoji();
             case "importemotes" -> new ImportEmotes();

@@ -3,6 +3,7 @@ C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\ur
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceMute.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\CommandFactory.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\UnBanMember.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\ViewLanguage.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\Translator.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\ViewBanList.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\JokeCommand.java
@@ -17,6 +18,7 @@ C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\ur
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\wrappers\IMemberPermissionsWrapper.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\KickMember.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\chatCommands\DeleteMessages.java
+C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\Ping.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceUnmute.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\wrappers\MemberPermissionsWrapperTest.java
 C:\Users\Пользователь\Рабочий стол\Tamada-vse\Tamada\Tamada\src\main\java\com\urfu\Tamada\command\crocodile\Crocodile.java

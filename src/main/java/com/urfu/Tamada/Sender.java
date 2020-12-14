@@ -5,9 +5,12 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 
 public class Sender {
-    public static String language = "uk";
+    public static String language = "en";
+
+    public Sender(String language){ Sender.language = language; }
 
     public static void send(GuildMessageReceivedEvent event, String str){
-        event.getChannel().sendMessage(Translator.traslate(Sender.language, str)).queue();
+        var result = Translator.traslate(Sender.language, str);
+        event.getChannel().sendMessage(result).queue();
     }
 }

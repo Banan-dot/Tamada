@@ -24,6 +24,7 @@ public class Main {
         Data.setDatabase(database);
         new BanList().fillBanList();
         new Translator().fillHashMap();
+        new Sender("ru");
         var bot = JDABuilder.createDefault(Config.getToken("TOKEN"))
                 .setChunkingFilter(ChunkingFilter.ALL) // enable member chunking for all guilds
                 .setMemberCachePolicy(MemberCachePolicy.ALL) // ignored if chunking enabled
