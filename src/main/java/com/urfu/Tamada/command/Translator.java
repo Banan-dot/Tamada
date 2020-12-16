@@ -8,12 +8,9 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
-public class Translator extends Command{
+public class Translator extends Command {
     public static HashMap<String, String> languages = new HashMap<>();
 
     public void fillHashMap(){
@@ -31,7 +28,7 @@ public class Translator extends Command{
         }
     }
 
-    public static String traslate(String language, String text){
+    public static String translate(String language, String text){
         try {
             if (!Translator.languages.containsKey(language))
                 return "";
@@ -53,7 +50,7 @@ public class Translator extends Command{
                         .getMessage()
                         .getContentRaw()
                         .replace(messages[0] + " " + messages[1], "");
-        event.getChannel().sendMessage(Translator.traslate(messages[1], str)).queue();
+        event.getChannel().sendMessage(Translator.translate(messages[1], str)).queue();
     }
 
     @Override

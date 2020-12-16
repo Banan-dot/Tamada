@@ -8,6 +8,6 @@ public class Sender {
     public static String language = "ru";
 
     public static void send(GuildMessageReceivedEvent event, String str){
-        event.getChannel().sendMessage(Translator.traslate(Sender.language, str)).queue();
+        event.getChannel().sendMessage(Translator.translate(Sender.language, str)).queue();
     }
 }

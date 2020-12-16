@@ -34,6 +34,8 @@ public class CommandFactory {
             case "alias" -> new Alias();
             case "ban" -> new BanMember();
             case "unban" -> new UnBanMember();
+            case "meme", "mem" -> new MemeCommand();
+            case "panthers" -> new PanthersCommand();
             default -> new NoCommand();
         };
     }
