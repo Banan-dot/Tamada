@@ -19,6 +19,7 @@ com\urfu\Tamada\command\permissionCommands\chatCommands\UnBanMember.class
 com\urfu\Tamada\command\alias\Alias.class
 com\urfu\Tamada\command\permissionCommands\chatCommands\WriteMembers.class
 com\urfu\Tamada\Sender.class
+com\urfu\Tamada\command\PanthersCommand.class
 com\urfu\Tamada\command\database\wrappedDB\WrappedBanList.class
 com\urfu\Tamada\events\CommandController.class
 com\urfu\Tamada\command\permissionCommands\SwitchLanguage.class
@@ -39,6 +40,7 @@ com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceMute.class
 com\urfu\Tamada\command\permissions\PermissionCommand.class
 com\urfu\Tamada\command\crocodile\Crocodile.class
 com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceCommand.class
+com\urfu\Tamada\command\MemeCommand.class
 com\urfu\Tamada\command\database\banList\BanTable.class
 com\urfu\Tamada\command\permissionCommands\KickMember.class
 com\urfu\Tamada\command\wrappers\MemberPermissionsWrapperTest.class

@@ -53,7 +53,7 @@ public class Crocodile extends Command {
     public void sendMessageToPrivateChannel(GuildMessageReceivedEvent event){
         word = getRandomWord();
         Objects.requireNonNull(event.getMember()).getUser().openPrivateChannel().queue((channel) ->
-                channel.sendMessage(Translator.traslate(Sender.language, word)).queue());
+                channel.sendMessage(Translator.translate(Sender.language, word)).queue());
 
     }
 

@@ -42,14 +42,15 @@ public class Main {
     }
 
     private static void setTimer(JDA jda){
+        var hour = 8;
         Calendar today = Calendar.getInstance();
-        today.set(Calendar.HOUR_OF_DAY, 7);
+        today.set(Calendar.HOUR_OF_DAY, hour);
         today.set(Calendar.MINUTE, 0);
         today.set(Calendar.SECOND, 0);
 
         Timer timer = new Timer();
         timer.schedule(new DailyAnecdote(jda),
                 today.getTime(),
-                TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS));
+                TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS));
     }
 }

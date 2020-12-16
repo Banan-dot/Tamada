@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class Translator extends Command{
+public class Translator extends Command {
     public static HashMap<String, String> languages = new HashMap<>();
 
     public void fillHashMap(){
@@ -28,7 +28,7 @@ public class Translator extends Command{
         }
     }
 
-    public static String traslate(String language, String text){
+    public static String translate(String language, String text){
         try {
             if (!Translator.languages.containsKey(language))
                 return "";
@@ -50,7 +50,7 @@ public class Translator extends Command{
                         .getMessage()
                         .getContentRaw()
                         .replace(messages[0] + " " + messages[1], "");
-        event.getChannel().sendMessage(Translator.traslate(messages[1], str)).queue();
+        event.getChannel().sendMessage(Translator.translate(messages[1], str)).queue();
     }
 
     @Override
