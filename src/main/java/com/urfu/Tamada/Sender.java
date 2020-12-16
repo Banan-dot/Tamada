@@ -10,7 +10,7 @@ public class Sender {
     public Sender(String language){ Sender.language = language; }
 
     public static void send(GuildMessageReceivedEvent event, String str){
-        //var result = Translator.traslate(Sender.language, str);
+        var result = Translator.traslate(Sender.language, str);
         event.getChannel().sendMessage(str).queue();
     }
 }

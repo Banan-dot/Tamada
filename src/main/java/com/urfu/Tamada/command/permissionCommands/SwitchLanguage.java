@@ -3,13 +3,14 @@ package com.urfu.Tamada.command.permissionCommands;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.command.Translator;
+import com.urfu.Tamada.command.permissions.PermissionCommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.io.IOException;
 
-public class SwitchLanguage extends Command {
+public class SwitchLanguage extends PermissionCommand {
     @Override
-    public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
+    public void execute(GuildMessageReceivedEvent event) throws IOException {
         var messages = event.getMessage().getContentRaw().split(" ");
         if (messages.length == 1)
             Sender.send(event, "Добавьте, пожалуйста, язык.");

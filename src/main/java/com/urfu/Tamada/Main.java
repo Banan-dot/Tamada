@@ -1,10 +1,16 @@
 package com.urfu.Tamada;
 
+import com.google.gson.Gson;
 import com.urfu.Tamada.command.DailyAnecdote;
 import com.urfu.Tamada.command.Translator;
 import com.urfu.Tamada.command.database.Data;
 import com.urfu.Tamada.command.database.DataBase;
 import com.urfu.Tamada.events.CommandController;
+import com.vk.api.sdk.client.TransportClient;
+import com.vk.api.sdk.client.VkApiClient;
+import com.vk.api.sdk.client.actors.UserActor;
+import com.vk.api.sdk.httpclient.HttpTransportClient;
+import com.vk.api.sdk.objects.UserAuthResponse;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
