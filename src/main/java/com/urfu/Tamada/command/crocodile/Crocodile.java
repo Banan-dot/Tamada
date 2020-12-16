@@ -14,17 +14,16 @@ import java.util.Random;
 
 public class Crocodile extends Command {
     public final ArrayList<String> words;
-    public static boolean Active;
+    public static boolean active;
     public String word;
     public String channelId;
     public net.dv8tion.jda.api.entities.Member host;
     public String pathToWords = "./resources/crocodile_words.txt";
 
 
-    private final String help = "Игра в крокодила.";
-
     @Override
     public void getHelp(GuildMessageReceivedEvent event) {
+        String help = "Игра в крокодила.\nСтарт: !croc start\nСтать ведущим: !croc me\nЗакончить игру: !croc end";
         Sender.send(event, help);
     }
 
@@ -53,7 +52,7 @@ public class Crocodile extends Command {
     public void sendMessageToPrivateChannel(GuildMessageReceivedEvent event){
         word = getRandomWord();
         Objects.requireNonNull(event.getMember()).getUser().openPrivateChannel().queue((channel) ->
-                channel.sendMessage(Translator.translate(Sender.language, word)).queue());
+                channel.sendMessage(Translator.translate(Sender.getLanguage(), word)).queue());
 
     }
 
@@ -65,18 +64,17 @@ public class Crocodile extends Command {
     public void execute(GuildMessageReceivedEvent event) {
         var mess = event.getMessage().getContentRaw().split(" ");
 
-        if (mess.length == 2 && mess[1].equals("me")){
+        if (mess.length == 2 && mess[1].equals("me"))
             sendMessageToPrivateChannel(event);
-        }
 
         if (mess.length == 2 && mess[1].equals("end")){
-            Active = false;
+            active = false;
             Sender.send(event, "Игра окончена.");
             return;
         }
 
-        if (mess.length == 2 && mess[1].equals("start")){
-            Active = true;
+        if (mess.length == 2 && mess[1].equals("start") && !active){
+            active = true;
             channelId = event.getGuild().getId();
             Sender.send(event, "Игра начинается");
             fillWords();

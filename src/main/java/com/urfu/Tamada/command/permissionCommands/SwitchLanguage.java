@@ -1,7 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.command.Translator;
 import com.urfu.Tamada.command.permissions.PermissionCommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -16,7 +15,7 @@ public class SwitchLanguage extends PermissionCommand {
             Sender.send(event, "Добавьте, пожалуйста, язык.");
         var language = messages[1];
         if (Translator.languages.containsKey(language))
-            Sender.language = language;
+            Sender.setLanguage(language);
         else{
             var sb = new StringBuilder();
             Sender.send(event, "Данный язык отсутствует");

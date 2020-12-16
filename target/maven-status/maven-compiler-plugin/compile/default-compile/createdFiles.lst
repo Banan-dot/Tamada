@@ -1,6 +1,7 @@
 com\urfu\Tamada\command\database\Data.class
 com\urfu\Tamada\command\database\DataBase.class
 com\urfu\Tamada\command\permissions\StatesOfPermissionsCheck.class
+com\urfu\Tamada\command\alias\Alias$1.class
 com\urfu\Tamada\command\permissionCommands\chatCommands\DeleteMessages.class
 com\urfu\Tamada\command\permissionCommands\chatCommands\ChatMute.class
 com\urfu\Tamada\command\permissionCommands\GetIdFromString.class
