@@ -36,8 +36,7 @@ public class CommandController extends ListenerAdapter {
                currentGame = aliases.get(guild);
         if (currentGame != null && event.getUser().getId().equals(currentGame.leader.getId())){
            var unicode = event.getReaction().getReactionEmote().getAsCodepoints();
-           var wordId = event.getMessageIdLong();
-           if (unicode.equals("U+2705") && currentGame.currentMessage.getIdLong() == wordId){
+           if (unicode.equals("U+2705")){
                currentGame.points++;
                currentGame.sendToPrivateMess(event);
            }
