@@ -8,7 +8,7 @@ GRAYSCALE_40 = r"B@&#MZWO0QbdpqwmoazunxrctiI1?l!+~;:-_,`."
 GRAYSCALE_10 = '@%#J+=-:.'
 GRAYSCALE_DOUBLE = '01'
 SYMBOL_WIDTH, SYMBOL_HEIGHT = 11, 17
-FONT = ImageFont.truetype(os.path.join(os.getcwd(), 'lucon.ttf'), 19)
+FONT = ImageFont.truetype('./resources/lucon.ttf', 19)
 
 
 def convertToAscii(image, new_width, new_height, symbols):
@@ -56,7 +56,7 @@ def check_width_and_height(width, height):
 
 
 def main():
-    img_path = os.path.join(os.getcwd(), 'original.jpg')
+    img_path = "./src/main/java/com/urfu/Tamada/command/ascii/original.jpg"
     path_image = img_path
     if os.path.exists(path_image):
         print("File exists")
@@ -68,13 +68,13 @@ def main():
     scale = 0.10
     new_width = int(width * scale)
     new_height = int(scale * height * (SYMBOL_WIDTH / SYMBOL_HEIGHT))
-    out_file_name = os.path.join(os.getcwd(), 'ascii_string.txt')
+    out_file_name = "./src/main/java/com/urfu/Tamada/command/ascii/ascii/ascii_string.txt"
     ascii_art = convertToAscii(image, new_width, new_height, GRAYSCALE_40)
     with open(out_file_name, "w") as f:
         f.write(ascii_art)
         print("File string has written")
     out_image = create_ascii_image(image, new_width, new_height, GRAYSCALE_40)
-    pth = os.path.join(os.getcwd(), "ascii_original.jpg")
+    pth = "./src/main/java/com/urfu/Tamada/command/ascii/ascii_original.jpg"
     out_image.save(pth)
     print("File out has written")
 
