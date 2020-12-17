@@ -68,8 +68,7 @@ def main():
     scale = 0.10
     new_width = int(width * scale)
     new_height = int(scale * height * (SYMBOL_WIDTH / SYMBOL_HEIGHT))
-    out_file_name = "ascii_string.txt"	
-    # ./src/main/java/com/urfu/Tamada/command/ascii/ascii/ascii_string.txt"
+    out_file_name = "./src/main/java/com/urfu/Tamada/command/ascii/ascii/ascii_string.txt"	
     ascii_art = convertToAscii(image, new_width, new_height, GRAYSCALE_40)
     with open(out_file_name, "w") as f:
         f.write(ascii_art)
