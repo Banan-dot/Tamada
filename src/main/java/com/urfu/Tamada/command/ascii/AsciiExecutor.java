@@ -32,7 +32,7 @@ public class AsciiExecutor {
             event.getChannel().sendMessage(answerIfNoImage).queue();
             return;
         }
-        Thread.sleep(200);
+        Thread.sleep(500);
         saveAsciiArt();
         sendPhotoToChannel(event);
     }
