@@ -43,7 +43,7 @@ public class AsciiExecutor {
     }
     public void saveAsciiArt(){
         try {
-            String[] cmd = {"cmd", "/c", "python "+ pathToPython};
+            String[] cmd = {"bash", "/c", "python "+ pathToPython};
             Process p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
         }
