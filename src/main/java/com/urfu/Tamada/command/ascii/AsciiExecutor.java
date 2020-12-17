@@ -15,7 +15,7 @@ public class AsciiExecutor {
         this.pathAscii = pathAscii;
         this.pathToPython = pathToPython;
     }
-    public void saveOriginalPhoto(GuildMessageReceivedEvent event){
+    public void saveOriginalPhoto(GuildMessageReceivedEvent event) throws InterruptedException {
         try {
             var photo = event
                     .getMessage()
@@ -32,6 +32,7 @@ public class AsciiExecutor {
             event.getChannel().sendMessage(answerIfNoImage).queue();
             return;
         }
+        Thread.sleep(200);
         saveAsciiArt();
         sendPhotoToChannel(event);
     }

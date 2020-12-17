@@ -14,7 +14,7 @@ public class Ascii extends Command {
     }
 
     @Override
-    public void execute(GuildMessageReceivedEvent event) {
+    public void execute(GuildMessageReceivedEvent event) throws InterruptedException {
         String savePathOriginal = "./src/main/java/com/urfu/Tamada/command/ascii/original.jpg";
         String pathToPython = "./src/main/java/com/urfu/Tamada/command/ascii/ascii/AsciiGenerator.py";
         String pathAscii = "./src/main/java/com/urfu/Tamada/command/ascii/ascii_original.jpg";
