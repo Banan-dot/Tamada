@@ -23,11 +23,11 @@ def get_ascii_lines_photo(image, shape, out_img, extension):
                 out_img[min(y + int(np.sin(l * np.pi / 2.) * LINES_AMPLITUDE * decel(m)), height - 1), x] = 0
                 l += m / LINES_AMPLITUDE
 
-    plt.imsave("./src\\main\\java\\com\\urfu\\Tamada\\command\\ascii\\ascii_lines_original.jpg", out_img)
+    plt.imsave("./src/main/java/com/urfu/Tamada/command/ascii/ascii_lines_original.jpg", out_img)
 
 
 def main(extension="jpg"):
-    filename = "./src\\main\\java\\com\\urfu\\Tamada\\command\\ascii\\original.jpg"
+    filename = "./src/main/java/com/urfu/Tamada/command/ascii/original.jpg"
     image = plt.imread(filename)
     shape = image.shape
     out_img = np.ones(shape)

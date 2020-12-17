@@ -56,9 +56,8 @@ def check_width_and_height(width, height):
 
 
 def main():
-    img_path = "./src\\main\\java\\com\\urfu\\Tamada\\command\\ascii\\original.jpg"
+    img_path = "./src/main/java/com/urfu/Tamada/command/ascii/original.jpg"
     path_image = img_path
-    #"./src\\main\\java\\com\\urfu\\Tamada\\command\\ascii\\original.jpg"
     if os.path.exists(path_image):
         print("File exists")
         image = Image.open(path_image)
@@ -70,14 +69,13 @@ def main():
     new_width = int(width * scale)
     new_height = int(scale * height * (SYMBOL_WIDTH / SYMBOL_HEIGHT))
     out_file_name = "ascii_string.txt"	
-    # ./src\\main\\java\\com\\urfu\\Tamada\\command\\ascii\\ascii\\ascii_string.txt"
+    # ./src/main/java/com/urfu/Tamada/command/ascii/ascii/ascii_string.txt"
     ascii_art = convertToAscii(image, new_width, new_height, GRAYSCALE_40)
     with open(out_file_name, "w") as f:
         f.write(ascii_art)
     out_image = create_ascii_image(image, new_width, new_height, GRAYSCALE_40)
-    pth = "./src\\main\\java\\com\\urfu\\Tamada\\command\\ascii\\ascii_original.jpg"
+    pth = "./src/main/java/com/urfu/Tamada/command/ascii/ascii_original.jpg"
     out_image.save(pth)	
-    # ("./src\\main\\java\\com\\urfu\\Tamada\\command\\ascii\\ascii_original.jpg")
 
 
 if __name__ == '__main__':

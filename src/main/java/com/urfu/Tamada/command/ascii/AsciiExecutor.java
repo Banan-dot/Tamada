@@ -45,7 +45,9 @@ public class AsciiExecutor {
         try {
             String[] cmd = {"bash", "/c", "python "+ pathToPython};
             Process p = Runtime.getRuntime().exec(cmd);
-            p.waitFor();
+            synchronized (p){
+                p.waitFor();
+            }
         }
         catch (Exception e){
             e.printStackTrace();
