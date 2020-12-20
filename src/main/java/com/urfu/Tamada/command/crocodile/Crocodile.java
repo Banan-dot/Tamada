@@ -1,5 +1,7 @@
 package com.urfu.Tamada.command.crocodile;
 
+import com.urfu.Tamada.Config;
+import com.urfu.Tamada.IO.Reader;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.command.Translator;
@@ -13,12 +15,12 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Crocodile extends Command {
-    public final ArrayList<String> words;
+    public ArrayList<String> words;
     public static boolean active;
     public String word;
     public String channelId;
     public net.dv8tion.jda.api.entities.Member host;
-    public String pathToWords = "./resources/crocodile_words.txt";
+
 
 
     @Override
@@ -32,17 +34,7 @@ public class Crocodile extends Command {
     }
 
     public void fillWords(){
-        try {
-            var reader = new BufferedReader(new FileReader(pathToWords));
-            var line = reader.readLine();
-            while (line != null) {
-                words.add(line);
-                line = reader.readLine();
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        words = Reader.readWords(Config.getPathToCrocodileWords());
     }
 
     private String getRandomWord(){

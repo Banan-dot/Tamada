@@ -9,6 +9,7 @@ com\urfu\Tamada\Config.class
 com\urfu\Tamada\command\Translator.class
 com\urfu\Tamada\command\permissionCommands\ImportEmotes.class
 com\urfu\Tamada\command\permissionCommands\AddNewEmoji.class
+com\urfu\Tamada\VkProgramMemes.class
 com\urfu\Tamada\command\permissionCommands\chatCommands\ChatUnmute.class
 com\urfu\Tamada\command\JokeCommand.class
 com\urfu\Tamada\command\NoCommand.class
@@ -25,8 +26,10 @@ com\urfu\Tamada\command\database\wrappedDB\WrappedBanList.class
 com\urfu\Tamada\events\CommandController.class
 com\urfu\Tamada\command\permissionCommands\SwitchLanguage.class
 com\urfu\Tamada\Main.class
+com\urfu\Tamada\IO\Reader.class
 com\urfu\Tamada\command\permissionCommands\ViewLanguage.class
 com\urfu\Tamada\command\ascii\Ascii.class
+com\urfu\Tamada\IO\Writer.class
 com\urfu\Tamada\command\database\wrappedDB\WrappedData.class
 com\urfu\Tamada\command\database\anecdotes\Anecdotes.class
 com\urfu\Tamada\command\Command.class

@@ -31,9 +31,9 @@ public class MemeCommand extends Command {
 
                 for (Object obj : array) {
                     var jsonObj = (JSONObject) obj;
-                    postLink =  (String) jsonObj.get("postLink");
-                    title = (String) jsonObj.get("title");
-                    url = (String) jsonObj.get("url");
+                    postLink =  jsonObj.get("postLink").toString();
+                    title = jsonObj.get("title").toString();
+                    url = jsonObj.get("url").toString();
                 }
             }
             bufferReader.close();

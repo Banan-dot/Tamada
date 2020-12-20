@@ -1,6 +1,7 @@
 package com.urfu.Tamada.command.alias;
 
 import com.urfu.Tamada.Config;
+import com.urfu.Tamada.IO.Reader;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.Permission;
@@ -14,7 +15,7 @@ import java.util.*;
 import java.util.Timer;
 
 public class Alias extends Command {
-    private final ArrayList<String> words = new ArrayList<>();
+    private ArrayList<String> words = new ArrayList<>();
     private int interval = 60;
     public int points = 0;
     public String channelId;
@@ -34,17 +35,7 @@ public class Alias extends Command {
     }
 
     private void fillWords(){
-        try {
-            var reader = new BufferedReader(new FileReader(Config.getPathToAliasWords()));
-            var line = reader.readLine();
-            while (line != null) {
-                words.add(line);
-                line = reader.readLine();
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        words = Reader.readWords(Config.getPathToAliasWords());
     }
 
     private String getRandomWord(){
