@@ -6,7 +6,10 @@ import com.urfu.Tamada.command.DailyAnecdote;
 import com.urfu.Tamada.command.database.Data;
 import com.urfu.Tamada.command.database.DataBase;
 import com.urfu.Tamada.command.translator.Translator;
+import com.urfu.Tamada.command.zen.Subscriber;
 import com.urfu.Tamada.events.CommandController;
+import com.urfu.Tamada.vk.VK;
+import com.urfu.Tamada.vk.VkProgramMemes;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -38,17 +41,23 @@ public class Main {
         new BanList().fillBanList();
         new Translator().fillHashMap();
         new Sender("ru");
+        new Subscriber();
         new Reader();
         new Writer();
-        bot.getGuilds().stream().filter(ch -> ch.getTextChannelsByName("zen", true) == null)
+        new VK(bot);
+        bot.getGuilds().stream().filter(ch -> {
+            ch.getTextChannelsByName("zen", true);
+            return false;
+        })
                 .forEach(ch -> ch.createTextChannel("zen").queue());
-        setTimerAnecdote(bot);
-        setTimerZen(bot);
         new VkProgramMemes(bot).execute();
+        //setTimerAnecdote(bot);
+        setTimerZen(bot);
     }
 
     private static void setTimerZen(JDA bot) {
-        new Timer().schedule(new VkProgramMemes(bot), MILLISECONDS.convert(10, MINUTES));
+        var fiveMinutes = 60 * 1000 * 5;
+        new Timer().schedule(new VkProgramMemes(bot), fiveMinutes);
     }
 
     private static void setTimerAnecdote(JDA jda) {

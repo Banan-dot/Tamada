@@ -13,6 +13,8 @@ import com.urfu.Tamada.command.permissions.PermissionCheck;
 import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import com.urfu.Tamada.command.permissions.StatesOfPermissionsCheck;
 import com.urfu.Tamada.command.wrappers.MemberPermissionsWrapper;
+import com.vk.api.sdk.exceptions.ApiException;
+import com.vk.api.sdk.exceptions.ClientException;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.priv.react.PrivateMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -108,7 +110,7 @@ public class CommandController extends ListenerAdapter {
         }
         try {
             command.execute(event);
-        } catch (InterruptedException | IOException e) {
+        } catch (InterruptedException | IOException | ClientException | ApiException e) {
             e.printStackTrace();
         }
     }

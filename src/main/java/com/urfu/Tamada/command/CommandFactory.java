@@ -12,6 +12,9 @@ import com.urfu.Tamada.command.translator.ListLanguages;
 import com.urfu.Tamada.command.translator.SwitchLanguage;
 import com.urfu.Tamada.command.translator.Translator;
 import com.urfu.Tamada.command.translator.ViewLanguage;
+import com.urfu.Tamada.command.zen.Subscriber;
+import com.urfu.Tamada.command.zen.Unsubscriber;
+import com.urfu.Tamada.vk.ViewSubs;
 
 public class CommandFactory {
     public Command getCommand(String commandName) {
@@ -27,6 +30,9 @@ public class CommandFactory {
             case "mute_t" -> new ChatMute();
             case "ascii" -> new Ascii();
             case "sl" -> new SwitchLanguage();
+            case "vs" -> new ViewSubs();
+            case "sub" -> new Subscriber();
+            case "unsub" -> new Unsubscriber();
             case "hd" -> new AsciiLines();
             case "p" -> new Ping();
             case "mm" -> new WriteMembers();
