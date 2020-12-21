@@ -8,14 +8,14 @@ import com.urfu.Tamada.command.CommandFactory;
 import com.urfu.Tamada.command.Pair;
 import com.urfu.Tamada.command.alias.Alias;
 import com.urfu.Tamada.command.crocodile.Crocodile;
-import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
+import com.urfu.Tamada.command.permissionCommands.GetIdFromString;
 import com.urfu.Tamada.command.permissions.PermissionCheck;
+import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import com.urfu.Tamada.command.permissions.StatesOfPermissionsCheck;
 import com.urfu.Tamada.command.wrappers.MemberPermissionsWrapper;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.priv.react.PrivateMessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import com.urfu.Tamada.command.permissionCommands.GetIdFromString;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
@@ -28,20 +28,19 @@ public class CommandController extends ListenerAdapter {
     private final HashMap<Long, Alias> aliases = new HashMap<>();
 
     @Override
-    public void onPrivateMessageReactionAdd(@Nonnull PrivateMessageReactionAddEvent event){
+    public void onPrivateMessageReactionAdd(@Nonnull PrivateMessageReactionAddEvent event) {
         var memberId = Objects.requireNonNull(event.getUser()).getIdLong();
         Alias currentGame = null;
-        for(var guild : aliases.keySet())
+        for (var guild : aliases.keySet())
             if (aliases.get(guild).getLeader().getIdLong() == memberId)
-               currentGame = aliases.get(guild);
-        if (currentGame != null && event.getUser().getId().equals(currentGame.leader.getId())){
-           var unicode = event.getReaction().getReactionEmote().getAsCodepoints();
-           if (unicode.equals("U+2705")){
-               currentGame.points++;
-               currentGame.sendToPrivateMess(event);
-           }
-           else if (unicode.equals("U+27a1"))
-               currentGame.sendToPrivateMess(event);
+                currentGame = aliases.get(guild);
+        if (currentGame != null && event.getUser().getId().equals(currentGame.leader.getId())) {
+            var unicode = event.getReaction().getReactionEmote().getAsCodepoints();
+            if (unicode.equals("U+2705")) {
+                currentGame.points++;
+                currentGame.sendToPrivateMess(event);
+            } else if (unicode.equals("U+27a1"))
+                currentGame.sendToPrivateMess(event);
         }
     }
 
@@ -91,7 +90,7 @@ public class CommandController extends ListenerAdapter {
         return true;
     }
 
-    private void handleCommand(String commandName, GuildMessageReceivedEvent event, Long channelId){
+    private void handleCommand(String commandName, GuildMessageReceivedEvent event, Long channelId) {
         var command = new CommandFactory().getCommand(commandName.substring(1));
         if (!checkPermissions(event, command))
             return;
@@ -107,13 +106,16 @@ public class CommandController extends ListenerAdapter {
             aliases.get(channelId).execute(event);
             return;
         }
-        try { command.execute(event); }
-        catch (InterruptedException | IOException e) { e.printStackTrace();}
+        try {
+            command.execute(event);
+        } catch (InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean isAliasActivate(Long channelId,
-                                        String commandName,
-                                        GuildMessageReceivedEvent event){
+                                    String commandName,
+                                    GuildMessageReceivedEvent event) {
         return aliases.containsKey(channelId) && aliases.get(channelId).active
                 && aliases.get(channelId).channelId != null
                 && (commandName.startsWith("!alias") || !commandName.startsWith("!"))
@@ -122,7 +124,7 @@ public class CommandController extends ListenerAdapter {
 
     private boolean isCrocodileActivate(Long channelId,
                                         String commandName,
-                                        GuildMessageReceivedEvent event){
+                                        GuildMessageReceivedEvent event) {
         return Crocodile.active
                 && crocodiles.get(channelId).channelId != null
                 && (commandName.startsWith("!croc") || !commandName.startsWith("!"))
@@ -130,7 +132,7 @@ public class CommandController extends ListenerAdapter {
     }
 
     public static Pair<net.dv8tion.jda.api.entities.Member, net.dv8tion.jda.api.entities.Guild>
-    getMemberFromEvent(GuildMessageReceivedEvent event){
+    getMemberFromEvent(GuildMessageReceivedEvent event) {
         var guild = event.getJDA().getGuildById(Objects.requireNonNull(event.getMember()).getGuild().getId());
         var mess = event.getMessage().getContentRaw();
         assert guild != null;

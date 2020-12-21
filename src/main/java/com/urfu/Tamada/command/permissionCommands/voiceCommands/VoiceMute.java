@@ -1,8 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands.voiceCommands;
 
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.command.Command;
-
 import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 

@@ -6,7 +6,6 @@ com\urfu\Tamada\command\permissionCommands\chatCommands\DeleteMessages.class
 com\urfu\Tamada\command\permissionCommands\chatCommands\ChatMute.class
 com\urfu\Tamada\command\permissionCommands\GetIdFromString.class
 com\urfu\Tamada\Config.class
-com\urfu\Tamada\command\Translator.class
 com\urfu\Tamada\command\permissionCommands\ImportEmotes.class
 com\urfu\Tamada\command\permissionCommands\AddNewEmoji.class
 com\urfu\Tamada\VkProgramMemes.class
@@ -24,10 +23,10 @@ com\urfu\Tamada\Sender.class
 com\urfu\Tamada\command\PanthersCommand.class
 com\urfu\Tamada\command\database\wrappedDB\WrappedBanList.class
 com\urfu\Tamada\events\CommandController.class
-com\urfu\Tamada\command\permissionCommands\SwitchLanguage.class
 com\urfu\Tamada\Main.class
 com\urfu\Tamada\IO\Reader.class
-com\urfu\Tamada\command\permissionCommands\ViewLanguage.class
+com\urfu\Tamada\command\translator\SwitchLanguage.class
+com\urfu\Tamada\command\translator\Translator.class
 com\urfu\Tamada\command\ascii\Ascii.class
 com\urfu\Tamada\IO\Writer.class
 com\urfu\Tamada\command\database\wrappedDB\WrappedData.class
@@ -45,8 +44,10 @@ com\urfu\Tamada\command\permissions\PermissionCommand.class
 com\urfu\Tamada\command\crocodile\Crocodile.class
 com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceCommand.class
 com\urfu\Tamada\command\MemeCommand.class
+com\urfu\Tamada\command\translator\ListLanguages.class
 com\urfu\Tamada\command\database\banList\BanTable.class
 com\urfu\Tamada\command\permissionCommands\KickMember.class
+com\urfu\Tamada\command\translator\ViewLanguage.class
 com\urfu\Tamada\command\wrappers\MemberPermissionsWrapperTest.class
 com\urfu\Tamada\command\permissionCommands\voiceCommands\VoiceUnmute.class
 com\urfu\Tamada\command\ascii\AsciiLines.class

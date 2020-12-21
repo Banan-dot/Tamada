@@ -1,15 +1,17 @@
 package com.urfu.Tamada;
 
-import com.urfu.Tamada.command.Translator;
+import com.urfu.Tamada.command.translator.Translator;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 
 public class Sender {
     private static String language = "en";
 
-    public Sender(String language){ Sender.setLanguage(language); }
+    public Sender(String language) {
+        Sender.setLanguage(language);
+    }
 
-    public static void send(GuildMessageReceivedEvent event, String str){
+    public static void send(GuildMessageReceivedEvent event, String str) {
         event.getChannel().sendMessage(Translator.translate(Sender.getLanguage(), str)).queue();
     }
 

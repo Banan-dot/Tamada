@@ -1,9 +1,7 @@
 package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.command.permissions.PermissionCommand;
-import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import net.dv8tion.jda.api.entities.Icon;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -30,13 +28,12 @@ public class ImportEmotes extends PermissionCommand {
         if (mess.length == 1) {
             Sender.send(event, "Требуется id канала сервера");
             return;
-        }
-        else if (!tryParseLong(mess[1])) {
+        } else if (!tryParseLong(mess[1])) {
             Sender.send(event, "Id должен быть числом");
             return;
         }
         var id = mess[1];
-        for(var emote: Objects.requireNonNull(event.getJDA().getGuildById(id)).getEmotes()){
+        for (var emote : Objects.requireNonNull(event.getJDA().getGuildById(id)).getEmotes()) {
             var image = getIcon(emote.getImageUrl());
             ImageIO.write(image, "png", new File(path));
             File f = new File(path);
@@ -53,7 +50,7 @@ public class ImportEmotes extends PermissionCommand {
         }
     }
 
-    private BufferedImage getIcon(String photo_url){
+    private BufferedImage getIcon(String photo_url) {
         BufferedImage image = null;
         try {
             URL url = new URL(photo_url);

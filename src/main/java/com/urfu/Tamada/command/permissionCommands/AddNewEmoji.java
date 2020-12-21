@@ -1,9 +1,7 @@
 package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.command.permissions.PermissionCommand;
-import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 

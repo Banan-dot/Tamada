@@ -1,4 +1,3 @@
-
 package com.urfu.Tamada.command.ascii;
 
 import com.urfu.Tamada.Sender;

@@ -15,7 +15,7 @@ public class ViewBanList extends Command {
 
 
     @Override
-    public void execute(GuildMessageReceivedEvent event){
+    public void execute(GuildMessageReceivedEvent event) {
         var banList = BanList.getBanList();
         var guildId = event.getGuild().getIdLong();
         if (banList.size() == 0) {
@@ -23,7 +23,7 @@ public class ViewBanList extends Command {
             return;
         }
         var result = new StringBuilder().append("Черный список:\n");
-        for(var el : banList)
+        for (var el : banList)
             if (el.getSecond() == guildId)
                 result.append(event.getGuild().getMemberById(el.getFirst())).append("\n");
         Sender.send(event, result.toString());

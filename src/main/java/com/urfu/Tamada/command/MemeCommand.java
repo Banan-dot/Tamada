@@ -1,8 +1,8 @@
 package com.urfu.Tamada.command;
 
+import com.urfu.Tamada.Sender;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import com.urfu.Tamada.Sender;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,7 +31,7 @@ public class MemeCommand extends Command {
 
                 for (Object obj : array) {
                     var jsonObj = (JSONObject) obj;
-                    postLink =  jsonObj.get("postLink").toString();
+                    postLink = jsonObj.get("postLink").toString();
                     title = jsonObj.get("title").toString();
                     url = jsonObj.get("url").toString();
                 }

@@ -1,12 +1,10 @@
 package com.urfu.Tamada.command;
 
-import java.util.*;
-
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.DebugUtil;
 import com.urfu.Tamada.command.database.anecdotes.Anecdotes;
-import com.urfu.Tamada.command.database.banList.BanTable;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+
+import java.util.Objects;
 
 public class JokeCommand extends Command {
     private final String help = "Выдает рандомный анекдот.";

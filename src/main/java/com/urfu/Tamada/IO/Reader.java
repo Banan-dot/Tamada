@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Reader {
-    public static ArrayList<String> readWords(String pathToWords){
+    public static ArrayList<String> readWords(String pathToWords) {
         var words = new ArrayList<String>();
         try {
             var reader = new BufferedReader(new FileReader(pathToWords));
@@ -24,7 +24,7 @@ public class Reader {
         return words;
     }
 
-    public static int readLastId(){
+    public static int readLastId() {
         var result = 0;
         try {
             var reader = new BufferedReader(new FileReader(Config.getPathToLastWord()));

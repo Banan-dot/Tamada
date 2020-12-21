@@ -4,15 +4,11 @@ import com.urfu.Tamada.Config;
 import com.urfu.Tamada.IO.Reader;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.priv.react.PrivateMessageReactionAddEvent;
 
-import javax.swing.*;
-import java.io.*;
 import java.lang.reflect.Member;
 import java.util.*;
-import java.util.Timer;
 
 public class Alias extends Command {
     private ArrayList<String> words = new ArrayList<>();
@@ -30,29 +26,29 @@ public class Alias extends Command {
     }
 
 
-    public Alias(){
+    public Alias() {
         HashMap<Member, Integer> membersScore = new HashMap<>();
     }
 
-    private void fillWords(){
+    private void fillWords() {
         words = Reader.readWords(Config.getPathToAliasWords());
     }
 
-    private String getRandomWord(){
+    private String getRandomWord() {
         return words.get(new Random().nextInt(words.size() - 1));
     }
 
-    private void setInterval(GuildMessageReceivedEvent event){
+    private void setInterval(GuildMessageReceivedEvent event) {
         final net.dv8tion.jda.api.entities.Message[] mess = {event
                 .getChannel()
                 .sendMessage("Application will close in 60 seconds.")
                 .complete()};
-        new Timer().schedule(new TimerTask(){
+        new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
                 if (interval <= 0) {
                     mess[0].delete().complete();
-                    Sender.send(event, "Таймер вышел\n"+leader.getNickname()+": " + points + " points");
+                    Sender.send(event, "Таймер вышел\n" + leader.getNickname() + ": " + points + " points");
                     interval = 60;
                     leader = null;
                     cancel();
@@ -63,10 +59,10 @@ public class Alias extends Command {
                         .editMessageById(id, "Time left:" + interval-- + " seconds.")
                         .complete();
             }
-        },0, 1000);
+        }, 0, 1000);
     }
 
-    public void sendToPrivateMessFromGuild(GuildMessageReceivedEvent event){
+    public void sendToPrivateMessFromGuild(GuildMessageReceivedEvent event) {
         var member = event.getMember();
         leader = member;
         assert member != null;
@@ -77,23 +73,23 @@ public class Alias extends Command {
         currentMessage = message;
     }
 
-    public void sendToPrivateMess(PrivateMessageReactionAddEvent event){
+    public void sendToPrivateMess(PrivateMessageReactionAddEvent event) {
         var message = event.getChannel().sendMessage(getRandomWord()).complete();
         message.addReaction("\u2705").queue();
         message.addReaction("\u27A1").queue();
         currentMessage = message;
     }
 
-    public net.dv8tion.jda.api.entities.Member getLeader(){
+    public net.dv8tion.jda.api.entities.Member getLeader() {
         return leader;
     }
 
-    private void sendQuestion(GuildMessageReceivedEvent event){
+    private void sendQuestion(GuildMessageReceivedEvent event) {
         Sender.send(event, "Кто хочет быть ведущим?");
     }
 
     @Override
-    public void execute(GuildMessageReceivedEvent event){
+    public void execute(GuildMessageReceivedEvent event) {
         var mess = event.getMessage().getContentRaw().split(" ");
 
         if (mess.length == 2 && mess[1].equals("me")) {
@@ -101,13 +97,13 @@ public class Alias extends Command {
             setInterval(event);
         }
 
-        if (mess.length == 2 && mess[1].equals("end")){
+        if (mess.length == 2 && mess[1].equals("end")) {
             active = false;
             Sender.send(event, "Игра окончена.");
             return;
         }
 
-        if (mess.length == 2 && mess[1].equals("start")){
+        if (mess.length == 2 && mess[1].equals("start")) {
             fillWords();
             active = true;
             channelId = event.getGuild().getId();

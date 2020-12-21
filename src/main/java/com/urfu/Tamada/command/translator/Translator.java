@@ -1,8 +1,9 @@
-package com.urfu.Tamada.command;
+package com.urfu.Tamada.command.translator;
 
 import com.darkprograms.speech.translator.GoogleTranslate;
 import com.urfu.Tamada.Config;
 import com.urfu.Tamada.Sender;
+import com.urfu.Tamada.command.Command;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.io.BufferedReader;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 public class Translator extends Command {
     public static HashMap<String, String> languages = new HashMap<>();
 
-    public void fillHashMap(){
+    public void fillHashMap() {
         try {
             var reader = new BufferedReader(new FileReader(Config.getPathToLanguages()));
             var line = reader.readLine();
@@ -28,7 +29,7 @@ public class Translator extends Command {
         }
     }
 
-    public static String translate(String language, String text){
+    public static String translate(String language, String text) {
         try {
             if (!Translator.languages.containsKey(language))
                 return "";
@@ -42,14 +43,14 @@ public class Translator extends Command {
     @Override
     public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
         var messages = event.getMessage().getContentRaw().split(" ");
-        if (messages.length < 3){
+        if (messages.length < 3) {
             Sender.send(event, "Введите корректные данные");
             return;
         }
         var str = event
-                        .getMessage()
-                        .getContentRaw()
-                        .replace(messages[0] + " " + messages[1], "");
+                .getMessage()
+                .getContentRaw()
+                .replace(messages[0] + " " + messages[1], "");
         event.getChannel().sendMessage(Translator.translate(messages[1], str)).queue();
     }
 

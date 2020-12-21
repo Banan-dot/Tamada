@@ -4,7 +4,6 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
 
 public class MemberPermissionsWrapper implements IMemberPermissionsWrapper {
     private final Member member;

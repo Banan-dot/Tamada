@@ -1,7 +1,6 @@
 package com.urfu.Tamada.command.permissionCommands.chatCommands;
 
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.command.permissions.PermissionCommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -17,9 +16,9 @@ public class DeleteMessages extends PermissionCommand {
     }
 
     @Override
-    public void execute(GuildMessageReceivedEvent event){
+    public void execute(GuildMessageReceivedEvent event) {
         var arr = event.getMessage().getContentRaw().split(" ");
-        if (arr.length == 1){
+        if (arr.length == 1) {
             Sender.send(event, "Напишите, сколько сообщений нужно удалить");
             return;
         }
@@ -30,12 +29,11 @@ public class DeleteMessages extends PermissionCommand {
         }
         var member = Objects.requireNonNull(event.getMember()).getIdLong();
         var messages = event.getChannel().getHistory().retrievePast(100).complete();
-        for(var i:messages){
-            if (n > 0){
+        for (var i : messages) {
+            if (n > 0) {
                 i.delete().queue();
                 n--;
-            }
-            else if(n == 0){
+            } else if (n == 0) {
                 return;
             }
         }

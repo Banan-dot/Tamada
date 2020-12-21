@@ -1,8 +1,7 @@
-package com.urfu.Tamada.command.permissionCommands;
+package com.urfu.Tamada.command.translator;
 
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
-import com.urfu.Tamada.command.Translator;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.io.IOException;

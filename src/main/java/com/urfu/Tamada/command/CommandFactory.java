@@ -8,10 +8,13 @@ import com.urfu.Tamada.command.permissionCommands.*;
 import com.urfu.Tamada.command.permissionCommands.chatCommands.*;
 import com.urfu.Tamada.command.permissionCommands.voiceCommands.VoiceMute;
 import com.urfu.Tamada.command.permissionCommands.voiceCommands.VoiceUnmute;
+import com.urfu.Tamada.command.translator.ListLanguages;
+import com.urfu.Tamada.command.translator.SwitchLanguage;
+import com.urfu.Tamada.command.translator.Translator;
+import com.urfu.Tamada.command.translator.ViewLanguage;
 
 public class CommandFactory {
-    public Command getCommand(String commandName)
-    {
+    public Command getCommand(String commandName) {
         return switch (commandName.toLowerCase()) {
             case "bl" -> new ViewBanList();
             case "help" -> new HelpCommand();
@@ -27,7 +30,8 @@ public class CommandFactory {
             case "hd" -> new AsciiLines();
             case "p" -> new Ping();
             case "mm" -> new WriteMembers();
-            case "ll" -> new ViewLanguage();
+            case "cl" -> new ViewLanguage();
+            case "ll" -> new ListLanguages();
             case "unmute_t" -> new ChatUnmute();
             case "addsmile" -> new AddNewEmoji();
             case "importemotes" -> new ImportEmotes();
