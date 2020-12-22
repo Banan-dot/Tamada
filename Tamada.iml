@@ -55,7 +55,7 @@
     <orderEntry type="library" name="Maven: io.opencensus:opencensus-api:0.24.0" level="project" />
     <orderEntry type="library" name="Maven: io.grpc:grpc-context:1.22.1" level="project" />
     <orderEntry type="library" name="Maven: io.opencensus:opencensus-contrib-http-util:0.24.0" level="project" />
-    <orderEntry type="library" name="Maven: net.dv8tion:JDA:4.2.0_211" level="project" />
+    <orderEntry type="library" name="Maven: net.dv8tion:JDA:4.2.0_223" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:16.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.neovisionaries:nv-websocket-client:2.10" level="project" />

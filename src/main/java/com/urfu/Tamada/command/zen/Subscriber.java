@@ -37,7 +37,7 @@ public class Subscriber extends Command {
     public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
         var contentRaw = event.getMessage().getContentRaw();
         var grouId = contentRaw.split(" ")[1];
-        if (Integer.parseInt(grouId) >= 0 && !isGroupId(grouId)){
+        if (Integer.parseInt(grouId) >= 0 || !isGroupId(grouId)){
             Sender.send(event, "Отправьте корректный id группы. id < 0");
             return;
         }
