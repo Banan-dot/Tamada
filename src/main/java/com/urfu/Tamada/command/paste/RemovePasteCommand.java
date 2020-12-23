@@ -12,5 +12,6 @@ public class RemovePasteCommand extends Command {
         var pasteDB = PasteCommandInformation.getPastesDB();
         var guildId = event.getGuild().getIdLong();
         pasteDB.removePaste(guildId, pasteCommandInformation.getPasteName());
+        //
     }
 }
