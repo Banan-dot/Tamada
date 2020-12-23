@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.io.IOException;
 
+@CommandInformation(name = "panthers", information = "МЫ ПАНТЕРЫ РРРР")
 public class PanthersCommand extends Command {
     @Override
     public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
@@ -34,10 +35,5 @@ public class PanthersCommand extends Command {
                 Отряд активно развивается, приветствуем новых игроков!
                 Подробная информация в дискорд канале""";
         Sender.send(event, panthersText);
-    }
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, "МЫ ПАНТЕРЫ РРРР");
     }
 }

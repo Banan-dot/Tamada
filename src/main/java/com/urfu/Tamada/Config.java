@@ -13,6 +13,9 @@ public class Config {
     public static final String pathToCrocodileWords = "./resources/crocodile_words.txt";
     private static final int appId = 7703895;
     private static final int haudiHo = -84392011;
+    private static final int hardSign = -201329136;
+
+    public static int getHardSign() {return hardSign;}
 
     public static int getVkAppId() {
         return appId;

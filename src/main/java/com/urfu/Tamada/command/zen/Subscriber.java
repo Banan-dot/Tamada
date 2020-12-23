@@ -1,64 +1,62 @@
 package com.urfu.Tamada.command.zen;
 
-import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.command.Command;
 import com.urfu.Tamada.command.database.subscribes.SubscribesDB;
-import com.urfu.Tamada.vk.VK;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import com.urfu.Tamada.vk.VkPost;
 
-import java.io.IOException;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
-public class Subscriber extends Command {
-    public static SubscribesDB subsBD;
+public class Subscriber{
+    public static SubscribesDB subsBD = new SubscribesDB();;
+    private final Long guildId;
+    private HashMap<Integer, Integer> subs;
+    private final ArrayList<VkPost> posts;
     
-    public Subscriber(){
-        subsBD = new SubscribesDB();
+    public Subscriber(long guildID){
+        guildId = guildID;
+        subs = Subscriber.getSubsFromDb();
+        posts = new ArrayList<>();
+        fillSubs();
+    }
+
+    public void addPost(VkPost post){
+        posts.add(post);
+    }
+
+    public ArrayList<VkPost> getPosts(){
+        return posts;
+    }
+
+    public HashMap<Integer, Integer> getSubs(){
+        return subs;
+    }
+
+    private void fillSubs(){
+        subs = subsBD.getAllSubsByGuildId(guildId);
+    }
+
+    public static HashMap<Integer, Integer> getSubsFromDb(){
+        return  Subscriber.subsBD.getSubs();
     }
 
     public static void removeFromSubs(long guildId, int groupId) {
         Subscriber.subsBD.removeGroupId(guildId, groupId);
     }
 
-    public static void addToSubs(long guildId, int groupId) {
-        Subscriber.subsBD.addGroupId(guildId, groupId);
+    public static void addToSubs(long guildId, int groupId, int lastId) {
+        Subscriber.subsBD.addGroupId(guildId, groupId, lastId);
     }
 
-    public static HashSet<Integer> getSubsByGuildId(long guildId){
+    public static void addLastId(int groupId, int lastId){
+        Subscriber.subsBD.addLastId(groupId, lastId);
+    }
+
+    public static HashMap<Integer, Integer> getSubsByGuildId(long guildId){
         return Subscriber.subsBD.getAllSubsByGuildId(guildId);
     }
 
     public static boolean isInSubs(long guildId, int groupId) {
         return Subscriber.subsBD.isInBanList(guildId, groupId);
-    }
-
-    @Override
-    public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
-        var contentRaw = event.getMessage().getContentRaw();
-        var grouId = contentRaw.split(" ")[1];
-        if (Integer.parseInt(grouId) >= 0 || !isGroupId(grouId)){
-            Sender.send(event, "Отправьте корректный id группы. id < 0");
-            return;
-        }
-        Subscriber.addToSubs(event.getGuild().getIdLong(), Integer.parseInt(grouId));
-        Sender.send(event, String.format("Группа с id = %s успешно добавлена", grouId));
-    }
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, "Подписка в дзен");
-    }
-
-    private boolean isGroupId(String id){
-        try{
-            var groupId = Integer.parseInt(id);
-            var vk = VK.getClient();
-            var items = VK.getPostsById(groupId, 2).get(0);
-            return true;
-        }
-        catch (Exception e){
-            return false;
-        }
     }
 }

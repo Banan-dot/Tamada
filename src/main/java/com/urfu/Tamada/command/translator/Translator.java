@@ -4,6 +4,7 @@ import com.darkprograms.speech.translator.GoogleTranslate;
 import com.urfu.Tamada.Config;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.CommandInformation;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.io.BufferedReader;
@@ -11,6 +12,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+@CommandInformation(
+        name = "tr",
+        information = "Переводит данную строку на язык, который вам нужен.",
+        detailedInformation = "[language] text")
 public class Translator extends Command {
     public static HashMap<String, String> languages = new HashMap<>();
 
@@ -52,11 +57,5 @@ public class Translator extends Command {
                 .getContentRaw()
                 .replace(messages[0] + " " + messages[1], "");
         event.getChannel().sendMessage(Translator.translate(messages[1], str)).queue();
-    }
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, "Переводит данную строку на язык, который вам нужен\n" +
-                "!tr [language] text");
     }
 }

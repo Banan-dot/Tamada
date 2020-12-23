@@ -9,7 +9,7 @@ import com.urfu.Tamada.command.translator.Translator;
 import com.urfu.Tamada.command.zen.Subscriber;
 import com.urfu.Tamada.events.CommandController;
 import com.urfu.Tamada.vk.VK;
-import com.urfu.Tamada.vk.VkProgramMemes;
+import com.urfu.Tamada.vk.VkSender;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -41,23 +41,23 @@ public class Main {
         new BanList().fillBanList();
         new Translator().fillHashMap();
         new Sender("ru");
-        new Subscriber();
         new Reader();
         new Writer();
         new VK(bot);
+        new Subscriber(0);
         bot.getGuilds().stream().filter(ch -> {
             ch.getTextChannelsByName("zen", true);
             return false;
         })
                 .forEach(ch -> ch.createTextChannel("zen").queue());
-        new VkProgramMemes(bot).execute();
-        //setTimerAnecdote(bot);
+        new VkSender().execute();
+        setTimerAnecdote(bot);
         setTimerZen(bot);
     }
 
     private static void setTimerZen(JDA bot) {
-        var fiveMinutes = 60 * 1000 * 5;
-        new Timer().schedule(new VkProgramMemes(bot), fiveMinutes);
+        var fiveMinutes = 60 * 1000; // *5
+        new Timer().schedule(new VkSender(), 0, fiveMinutes);
     }
 
     private static void setTimerAnecdote(JDA jda) {

@@ -4,12 +4,15 @@ import com.urfu.Tamada.Config;
 import com.urfu.Tamada.IO.Reader;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.CommandInformation;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.priv.react.PrivateMessageReactionAddEvent;
 
 import java.lang.reflect.Member;
 import java.util.*;
 
+@CommandInformation(name = "alias", information = "Игра в алиас.",
+        detailedInformation = "Старт: !alias start\n\tСтать ведущим: !alias me\n\tЗакончить игру: !alias end")
 public class Alias extends Command {
     private ArrayList<String> words = new ArrayList<>();
     private int interval = 60;
@@ -19,12 +22,6 @@ public class Alias extends Command {
     public net.dv8tion.jda.api.entities.Member leader;
     public boolean active = false;
     private final String help = "Игра в алиас.\nСтарт: !alias start\nСтать ведущим: !alias me\nЗакончить игру: !alias end";
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, help);
-    }
-
 
     public Alias() {
         HashMap<Member, Integer> membersScore = new HashMap<>();

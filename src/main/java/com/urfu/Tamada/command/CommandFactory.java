@@ -4,6 +4,10 @@ import com.urfu.Tamada.command.alias.Alias;
 import com.urfu.Tamada.command.ascii.Ascii;
 import com.urfu.Tamada.command.ascii.AsciiLines;
 import com.urfu.Tamada.command.crocodile.Crocodile;
+import com.urfu.Tamada.command.paste.AddPasteCommand;
+import com.urfu.Tamada.command.paste.GetAllPastesCommand;
+import com.urfu.Tamada.command.paste.GetPasteCommand;
+import com.urfu.Tamada.command.paste.RemovePasteCommand;
 import com.urfu.Tamada.command.permissionCommands.*;
 import com.urfu.Tamada.command.permissionCommands.chatCommands.*;
 import com.urfu.Tamada.command.permissionCommands.voiceCommands.VoiceMute;
@@ -12,7 +16,6 @@ import com.urfu.Tamada.command.translator.ListLanguages;
 import com.urfu.Tamada.command.translator.SwitchLanguage;
 import com.urfu.Tamada.command.translator.Translator;
 import com.urfu.Tamada.command.translator.ViewLanguage;
-import com.urfu.Tamada.command.zen.Subscriber;
 import com.urfu.Tamada.command.zen.Unsubscriber;
 import com.urfu.Tamada.vk.ViewSubs;
 
@@ -31,7 +34,7 @@ public class CommandFactory {
             case "ascii" -> new Ascii();
             case "sl" -> new SwitchLanguage();
             case "vs" -> new ViewSubs();
-            case "sub" -> new Subscriber();
+            case "sub" -> new SubscriberCommand();
             case "unsub" -> new Unsubscriber();
             case "hd" -> new AsciiLines();
             case "p" -> new Ping();
@@ -47,6 +50,10 @@ public class CommandFactory {
             case "ban" -> new BanMember();
             case "unban" -> new UnBanMember();
             case "meme", "mem" -> new MemeCommand();
+            case "addpaste" -> new AddPasteCommand();
+            case "rmpaste" -> new RemovePasteCommand();
+            case "getpaste" -> new GetPasteCommand();
+            case "viewpastes" -> new GetAllPastesCommand();
             case "panthers" -> new PanthersCommand();
             default -> new NoCommand();
         };

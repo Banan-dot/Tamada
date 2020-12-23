@@ -1,6 +1,7 @@
 package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.Sender;
+import com.urfu.Tamada.command.CommandInformation;
 import com.urfu.Tamada.command.permissions.PermissionCommand;
 import net.dv8tion.jda.api.entities.Icon;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -12,18 +13,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 
+@CommandInformation(name = "importEmotes", information = "Добавляет смайлы с указанного сервера, на котором есть этот бот. Если у вас есть для этого права, конечно.",
+        detailedInformation = "[Id]")
 public class ImportEmotes extends PermissionCommand {
-
-    private final String help = "Добавляет смайлы с указанного сервера, на котором есть этот бот. Если у вас есть для этого права, конечно.";
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, help);
-    }
-
     @Override
     public void execute(GuildMessageReceivedEvent event) throws IOException {
-        var path = ".\\resources\\img.png";
+        var path = "./resources/img.png";
         var mess = event.getMessage().getContentRaw().split(" ");
         if (mess.length == 1) {
             Sender.send(event, "Требуется id канала сервера");

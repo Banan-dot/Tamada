@@ -1,20 +1,15 @@
 package com.urfu.Tamada.command.permissionCommands.chatCommands;
 
 import com.urfu.Tamada.Sender;
+import com.urfu.Tamada.command.CommandInformation;
 import com.urfu.Tamada.command.permissions.PermissionCommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
 
+@CommandInformation(name = "delete", information = "Удаляет указанное количество сообщений на канале. Если у вас есть для этого права, конечно.",
+        detailedInformation = "[Число] число от 1 до 50")
 public class DeleteMessages extends PermissionCommand {
-
-    private final String help = "Удаляет указанное количество сообщений на канале. Если у вас есть для этого права, конечно.";
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, help);
-    }
-
     @Override
     public void execute(GuildMessageReceivedEvent event) {
         var arr = event.getMessage().getContentRaw().split(" ");

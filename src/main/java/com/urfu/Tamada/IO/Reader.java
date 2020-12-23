@@ -23,16 +23,4 @@ public class Reader {
         }
         return words;
     }
-
-    public static int readLastId() {
-        var result = 0;
-        try {
-            var reader = new BufferedReader(new FileReader(Config.getPathToLastWord()));
-            result = Integer.parseInt(reader.readLine());
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 }

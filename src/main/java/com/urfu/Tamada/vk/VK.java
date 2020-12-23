@@ -6,6 +6,7 @@ import com.vk.api.sdk.client.actors.ServiceActor;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
+import com.vk.api.sdk.objects.groups.Group;
 import com.vk.api.sdk.objects.wall.WallPostFull;
 import com.vk.api.sdk.queries.wall.WallGetFilter;
 import net.dv8tion.jda.api.JDA;
@@ -40,9 +41,22 @@ public class VK {
         return client.wall().get(VK.getServiceActor())
                 .ownerId(id)
                 .count(count)
-                .offset(1)
+                .offset(0)
                 .filter(WallGetFilter.valueOf("ALL"))
                 .execute()
                 .getItems();
+    }
+
+    public static Group getGroupById(int id) throws ClientException, ApiException {
+        return VK
+                .getClient()
+                .groups()
+                .getById(VK.getServiceActor())
+                .groupId(String.valueOf(-id))
+                .execute()
+                .get(0);
+    }
+    public static String getNameById(int id) throws ClientException, ApiException {
+        return getGroupById(id).getName();
     }
 }

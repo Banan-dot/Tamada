@@ -6,14 +6,11 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
 
+@CommandInformation(
+        name = "anec",
+        information = "Выдает рандомный анекдот.",
+        detailedInformation = "[Number] Number - количество (от 1 до 10) анекдотов, которое вы хотите получить.")
 public class JokeCommand extends Command {
-    private final String help = "Выдает рандомный анекдот.";
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, help);
-    }
-
     private String getRandomAnecdote() {
         var anecdote = new Anecdotes().getRandomAnecdote();
         anecdote = parseRawString(anecdote);

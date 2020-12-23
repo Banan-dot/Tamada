@@ -4,6 +4,7 @@ import com.urfu.Tamada.Config;
 import com.urfu.Tamada.IO.Reader;
 import com.urfu.Tamada.Sender;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.CommandInformation;
 import com.urfu.Tamada.command.translator.Translator;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -11,19 +12,14 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 
+@CommandInformation(name = "croc, crocodile", information = "Игра в крокодила.",
+        detailedInformation = "Старт: !croc start\n\tСтать ведущим: !croc me\n\tЗакончить игру: !croc end")
 public class Crocodile extends Command {
     public ArrayList<String> words;
     public static boolean active;
     public String word;
     public String channelId;
     public net.dv8tion.jda.api.entities.Member host;
-
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        String help = "Игра в крокодила.\nСтарт: !croc start\nСтать ведущим: !croc me\nЗакончить игру: !croc end";
-        Sender.send(event, help);
-    }
 
     public Crocodile() {
         words = new ArrayList<>();

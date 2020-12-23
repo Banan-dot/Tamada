@@ -8,6 +8,4 @@ import java.io.IOException;
 
 public abstract class PermissionCommand extends Command {
     public abstract void execute(GuildMessageReceivedEvent event) throws IOException, InterruptedException;
-
-    public abstract void getHelp(GuildMessageReceivedEvent event);
 }

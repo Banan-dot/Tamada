@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+@CommandInformation(name = "mem, meme", information = "Выдает мем.")
 public class MemeCommand extends Command {
     @Override
     public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
@@ -44,10 +45,5 @@ public class MemeCommand extends Command {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, "мем");
     }
 }

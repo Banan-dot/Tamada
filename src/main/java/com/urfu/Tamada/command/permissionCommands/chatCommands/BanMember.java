@@ -2,20 +2,16 @@ package com.urfu.Tamada.command.permissionCommands.chatCommands;
 
 import com.urfu.Tamada.BanList;
 import com.urfu.Tamada.Sender;
+import com.urfu.Tamada.command.CommandInformation;
 import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import com.urfu.Tamada.events.CommandController;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.Objects;
 
+@CommandInformation(name = "ban", information = "Банит указанного участника. Если у вас есть для этого права, конечно.",
+        detailedInformation = "[@MemberName]")
 public class BanMember extends PermissionCommandWithMembers {
-    private final String help = "Банит укзананого участника. Если у вас есть для этого права, конечно.";
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, help);
-    }
-
     @Override
     public void execute(GuildMessageReceivedEvent event) {
         var pair = CommandController.getMemberFromEvent(event);
