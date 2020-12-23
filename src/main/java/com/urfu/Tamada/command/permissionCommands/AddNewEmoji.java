@@ -1,20 +1,16 @@
 package com.urfu.Tamada.command.permissionCommands;
 
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.CommandInformation;
 import com.urfu.Tamada.command.permissions.PermissionCommand;
-import com.urfu.Tamada.command.permissions.PermissionCommandWithMembers;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
+
+@CommandInformation(
+        name = "addSmile",
+        information = "Добавляет эмоции с картинки в сообщении с командой.")
 public class AddNewEmoji extends PermissionCommand {
-    public final String help = "Добавляет эмоции с картинки в сообщении с командой.";
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, help);
-    }
-
     @Override
     public void execute(GuildMessageReceivedEvent event) {
         var mess = event.getMessage().getContentRaw().split(" ");

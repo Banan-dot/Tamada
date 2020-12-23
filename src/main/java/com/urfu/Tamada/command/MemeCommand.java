@@ -2,7 +2,6 @@ package com.urfu.Tamada.command;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
-import com.urfu.Tamada.Sender;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+
+@CommandInformation(name = "mem, meme", information = "Выдает мем.")
 public class MemeCommand extends Command {
     @Override
     public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
@@ -31,9 +32,9 @@ public class MemeCommand extends Command {
 
                 for (Object obj : array) {
                     var jsonObj = (JSONObject) obj;
-                    postLink =  (String) jsonObj.get("postLink");
-                    title = (String) jsonObj.get("title");
-                    url = (String) jsonObj.get("url");
+                    postLink = jsonObj.get("postLink").toString();
+                    title = jsonObj.get("title").toString();
+                    url = jsonObj.get("url").toString();
                 }
             }
             bufferReader.close();
@@ -44,10 +45,5 @@ public class MemeCommand extends Command {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, "мем");
     }
 }

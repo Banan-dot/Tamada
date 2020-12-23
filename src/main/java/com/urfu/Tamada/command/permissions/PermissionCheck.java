@@ -1,7 +1,7 @@
 package com.urfu.Tamada.command.permissions;
 
-import com.urfu.Tamada.command.wrappers.IMemberPermissionsWrapper;
 import com.urfu.Tamada.command.Command;
+import com.urfu.Tamada.command.wrappers.IMemberPermissionsWrapper;
 import net.dv8tion.jda.api.Permission;
 
 public class PermissionCheck {

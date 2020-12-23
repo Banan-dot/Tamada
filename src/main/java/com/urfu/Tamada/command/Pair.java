@@ -13,7 +13,7 @@ public class Pair<X, Y> {
         this.second = second;
     }
 
-    public static <X, Y> Pair <X, Y> create(X a, Y b) {
+    public static <X, Y> Pair<X, Y> create(X a, Y b) {
         return new Pair<>(a, b);
     }
 
@@ -25,7 +25,9 @@ public class Pair<X, Y> {
     }
 
     @Override
-    public int hashCode() { return first.hashCode() ^ second.hashCode(); }
+    public int hashCode() {
+        return first.hashCode() ^ second.hashCode();
+    }
 
     public X getFirst() {
         return first;

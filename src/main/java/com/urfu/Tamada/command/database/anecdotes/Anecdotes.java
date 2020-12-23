@@ -2,7 +2,6 @@ package com.urfu.Tamada.command.database.anecdotes;
 
 import com.urfu.Tamada.command.database.Data;
 
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Random;
 
@@ -17,7 +16,7 @@ public class Anecdotes extends Data {
         }
     }
 
-    public String getRandomAnecdote(){
+    public String getRandomAnecdote() {
         var rnd_at = new Random().nextInt(130256);
         return getAnecdoteById(rnd_at);
     }

@@ -5,6 +5,8 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.io.IOException;
 
+
+@CommandInformation(name = "panthers", information = "МЫ ПАНТЕРЫ РРРР")
 public class PanthersCommand extends Command {
     @Override
     public void execute(GuildMessageReceivedEvent event) throws InterruptedException, IOException {
@@ -12,7 +14,8 @@ public class PanthersCommand extends Command {
                 Я представляю отряд "Wild Panthers".\s
                 Мы специализируемся на отыгрыше различных рп сценариев в контексте игры Arma 3.
                 Принимаем активное участие во всех играх на данном проекте и не только.
-                Наш отряд основан закаленными в боях командирами. В нашем отряде присутствуют опытные игроки, которые всегда помогут разобраться с возникшими трудностями.
+                Наш отряд основан закаленными в боях командирами. В нашем отряде присутствуют опытные игроки, 
+                которые всегда помогут разобраться с возникшими трудностями.
 
                 У нас есть:
                 -Отряд для игры в Arma 3 во всех возможных режимах.
@@ -34,10 +37,5 @@ public class PanthersCommand extends Command {
                 Отряд активно развивается, приветствуем новых игроков!
                 Подробная информация в дискорд канале""";
         Sender.send(event, panthersText);
-    }
-
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, "МЫ ПАНТЕРЫ РРРР");
     }
 }

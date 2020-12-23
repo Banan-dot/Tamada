@@ -1,20 +1,17 @@
 package com.urfu.Tamada.command;
 
-import java.util.*;
-
 import com.urfu.Tamada.Sender;
-import com.urfu.Tamada.DebugUtil;
 import com.urfu.Tamada.command.database.anecdotes.Anecdotes;
-import com.urfu.Tamada.command.database.banList.BanTable;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-public class JokeCommand extends Command {
-    private final String help = "Выдает рандомный анекдот.";
+import java.util.Objects;
 
-    @Override
-    public void getHelp(GuildMessageReceivedEvent event) {
-        Sender.send(event, help);
-    }
+
+@CommandInformation(
+        name = "anec",
+        information = "Выдает рандомный анекдот.",
+        detailedInformation = "[Number] Number - количество (от 1 до 10) анекдотов, которое вы хотите получить.")
+public class JokeCommand extends Command {
 
     private String getRandomAnecdote() {
         var anecdote = new Anecdotes().getRandomAnecdote();

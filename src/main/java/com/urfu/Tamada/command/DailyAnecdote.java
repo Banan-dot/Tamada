@@ -1,20 +1,21 @@
 package com.urfu.Tamada.command;
 
 
-import com.urfu.Tamada.command.database.Data;
 import com.urfu.Tamada.command.database.anecdotes.Anecdotes;
 import net.dv8tion.jda.api.JDA;
 
 import java.util.Objects;
 import java.util.TimerTask;
 
+
 public class DailyAnecdote extends TimerTask {
-    private final String help = "Анекдот дня в определенное время";
     private final JDA jda;
-    public DailyAnecdote(JDA jda){
+
+    public DailyAnecdote(JDA jda) {
         this.jda = jda;
     }
-    public void sendDailyAnecdote(){
+
+    public void sendDailyAnecdote() {
         var anecdote = "Анекдот дня:\n" + new Anecdotes().getRandomAnecdote();
         jda.getGuilds().forEach(guild ->
                 Objects.requireNonNull(guild.getDefaultChannel())
