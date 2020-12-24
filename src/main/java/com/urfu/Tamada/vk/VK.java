@@ -41,7 +41,7 @@ public class VK {
         return client.wall().get(VK.getServiceActor())
                 .ownerId(id)
                 .count(count)
-                .offset(0)
+                .offset(1)
                 .filter(WallGetFilter.valueOf("ALL"))
                 .execute()
                 .getItems();

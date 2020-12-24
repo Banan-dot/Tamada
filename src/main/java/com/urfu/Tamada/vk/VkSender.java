@@ -13,18 +13,16 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import java.util.*;
 
 public class VkSender extends TimerTask{
-    private int lastPostId;
     private final String zenChannel = "zen";
 
     public void execute() throws ClientException, ApiException {
         var data = new HashMap<Long, Subscriber>();
         var guilds = getGuilds();
-        var isBreak = false;
         for (var guild : guilds) {
             var guildId = guild.getIdLong();
             var subs = Subscriber.getSubsByGuildId(guildId);
             for (var sub : subs.keySet()) {
-                var posts = VK.getPostsById(sub, 2);
+                var posts = VK.getPostsById(sub, 5);
                 for (var i : posts) {
                     if (i.getId().equals(subs.get(sub))){
                         break;
@@ -45,7 +43,6 @@ public class VkSender extends TimerTask{
                 }
             }
         }
-
         sendPost(data);
         addLastId(data);
     }
@@ -71,7 +68,7 @@ public class VkSender extends TimerTask{
         return VK.getJda().getGuilds();
     }
 
-    private void sendPost(HashMap<Long, Subscriber> data) throws ClientException, ApiException {
+    private void sendPost(HashMap<Long, Subscriber> data){
         var builder = new EmbedBuilder();
         for(var guild : getGuilds()){
             var zen = guild.getTextChannelsByName(zenChannel, true).get(0);
