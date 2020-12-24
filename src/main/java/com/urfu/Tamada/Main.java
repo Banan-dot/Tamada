@@ -20,7 +20,8 @@ import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import java.util.Calendar;
 import java.util.Timer;
 
-import static java.util.concurrent.TimeUnit.*;
+import static java.util.concurrent.TimeUnit.DAYS;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -56,7 +57,7 @@ public class Main {
     }
 
     private static void setTimerZen(JDA bot) {
-        var fiveMinutes = 60 * 1000; // *5
+        var fiveMinutes = 60 * 1000 * 5;
         new Timer().schedule(new VkSender(), 0, fiveMinutes);
     }
 
